@@ -1,0 +1,26 @@
+.displayed-name-prof {
+    color: #ffffff;
+    padding:.5rem 1rem;
+    text-decoration:none;
+    transition:color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+    text-transform: uppercase;
+}
+.displayed-name-prof:hover {
+    color: rgba(255,255,255,.55);
+}
+.page-title {
+    margin-top: 15%;
+    font-size: 50px;
+    text-align: center;
+}
+.page-title-separator {
+    width: 33.333%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-title-text-container > p {
+    padding-bottom: 15px;
+    text-align: center;
+    margin: auto !important;
+    max-width: 50%;
+}
