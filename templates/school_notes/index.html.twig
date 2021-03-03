@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SchoolNotes index{% endblock %}
+
+{% block body %}
+    <h1>SchoolNotes index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Note</th>
+                <th>Coefficient</th>
+                <th>Dated</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for school_note in school_notes %}
+            <tr>
+                <td>{{ school_note.id }}</td>
+                <td>{{ school_note.note }}</td>
+                <td>{{ school_note.coefficient }}</td>
+                <td>{{ school_note.dated ? school_note.dated|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('school_notes_show', {'id': school_note.id}) }}">show</a>
+                    <a href="{{ path('school_notes_edit', {'id': school_note.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('school_notes_new') }}">Create new</a>
+{% endblock %}
