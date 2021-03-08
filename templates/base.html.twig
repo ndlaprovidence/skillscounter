@@ -25,7 +25,13 @@
                         <a class="nav-link" href="#">Consultation évaluation</a>                        
                     </li>  
                 </ul>
-                <a class="displayed-name-prof" href="#">{{prof_name}}</a>                        
+                <a class="displayed-name-prof" href="#">
+                    {% if prof_name is defined %}
+                        {{prof_name}}
+                    {% else %}
+                        Connexion
+                    {% endif %}
+                </a>                        
             </div>
         </nav>
 

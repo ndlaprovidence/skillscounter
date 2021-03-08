@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/counters/main.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+<div class="subject-evaluation-div">
+    <span class="subject-name">
+        <h3 class="base-name">Subject : </h3>
+        {% if subject_name is defined %}
+            {{subject_name}}
+        {% else %}
+            <h3>Non défini</h3>
+        {% endif %}
+    </span>
+    <span class="evaluation-name">
+        <h3 class="base-name">Evaluation : </h3>
+        {% if evaluation_name is defined %}
+            {{evaluation_name}}
+        {% else %}
+            <h3>Non défini</h3>
+        {% endif %}
+    </span>
+</div>
+
+<div class="wrap">
+    <div>
+        <img src="assets/images/counters/jauge-1.png"/>
+        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+        <span>
+            <p class="subject1">test1</p>
+        </span>
+    </div>
+    <div>
+        <img src="assets/images/counters/jauge-1.png"/>
+        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+        <span>
+            <p class="subject2">test2</p>
+        </span>
+    </div>
+    <div>
+        <img src="assets/images/counters/jauge-1.png"/>
+        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+        <span>
+            <p class="subject3">test3</p>
+        </span>
+    </div>
+    <div>
+        <img src="assets/images/counters/jauge-1.png"/>
+        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+        <span>
+            <p class="subject4">test4</p>
+        </span>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+.subject-evaluation-div {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    font-weight: 100;
+}
+
+.base-name {
+    text-transform: uppercase;
+}
+
+.subject-evaluation-div > span > h3 {
+    display: inline;
+}
+
+.subject-name {
+    margin-left: 8%;
+}
+
+.evaluation-name {
+    margin-left: 38%;
+    margin-right: auto;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap div {
+    flex-grow: 1;
+    min-width: 25%;
+    max-height: 476px;
+    overflow: hidden;
+}
+
+.wrap div img {
+    width: 100%;
+}
+
+.wrap div:nth-child(n) {
+    position: relative;
+    width: 25%;
+    flex-grow: 0;
+}
+
+.wrap div:nth-child(n) .aiguillePreviousNote {
+    position: absolute;
+    transform: rotate(30.5deg);
+    left: 0%;
+    z-index: 2;
+}
+
+.wrap div:nth-child(n) .aiguilleNewNote {
+    position: absolute;
+    transform: rotate(115.5deg);
+    left: 0%;
+    top: 0%;
+    z-index: 3;
+}
+
+.wrap div span {
+    position: relative;
+    bottom: 47%;
+}
+
+.wrap div span p {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 2.5em;
+    color: #000;  
+}
+
+p {
+    text-align: center;
+}
