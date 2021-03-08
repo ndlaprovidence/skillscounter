@@ -1,62 +1,70 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ asset('assets/css/counters/main.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/counters.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
-<div class="subject-evaluation-div">
-    <span class="subject-name">
-        <h3 class="base-name">Subject : </h3>
-        {% if subject_name is defined %}
-            {{subject_name}}
-        {% else %}
-            <h3>Non défini</h3>
-        {% endif %}
-    </span>
-    <span class="evaluation-name">
-        <h3 class="base-name">Evaluation : </h3>
-        {% if evaluation_name is defined %}
-            {{evaluation_name}}
-        {% else %}
-            <h3>Non défini</h3>
-        {% endif %}
-    </span>
-</div>
+    <div class="wrap-evaluation-information">
+        <div>
+            <h3>Subject : </h3>
+            <h3>Communication Ressources Humaines</h3>
+        </div>
+        <div>
+            <h3>Evaluation : </h3>
+            <h3>Oral - 02/10/2020</h3>
+        </div>
+    </div>
 
-<div class="wrap">
-    <div>
-        <img src="assets/images/counters/jauge-1.png"/>
-        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
-        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
-        <span>
-            <p class="subject1">test1</p>
-        </span>
+    <div class="wrap-text">
+        <div class="student-information">
+            <h3>student :</h3>
+            <h4 class="student-name">Alexandra PICHOT</h4>
+            <h4 class="student-grade">Terminale STMG</h4>
+        </div>
+        <div class="evaluation-description">
+            <h3>description :</h3>
+            <h4>Résumé du cours précédent</h4>
+        </div>
+        <div class="professor-information">
+            <h3>professor :</h3>
+            <h4>M. THOMAS</h4>
+        </div>
     </div>
-    <div>
-        <img src="assets/images/counters/jauge-1.png"/>
-        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
-        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
-        <span>
-            <p class="subject2">test2</p>
-        </span>
+
+    <div class="wrap-counters">
+        <div>
+            <img src="assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+            <span>
+                <p class="subject1">test1</p>
+            </span>
+        </div>
+        <div>
+            <img src="assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+            <span>
+                <p class="subject2">test2</p>
+            </span>
+        </div>
+        <div>
+            <img src="assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+            <span>
+                <p class="subject3">test3</p>
+            </span>
+        </div>
+        <div>
+            <img src="assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
+            <span>
+                <p class="subject4">test4</p>
+            </span>
+        </div>
     </div>
-    <div>
-        <img src="assets/images/counters/jauge-1.png"/>
-        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
-        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
-        <span>
-            <p class="subject3">test3</p>
-        </span>
-    </div>
-    <div>
-        <img src="assets/images/counters/jauge-1.png"/>
-        <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
-        <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
-        <span>
-            <p class="subject4">test4</p>
-        </span>
-    </div>
-</div>
 
 {% endblock %}

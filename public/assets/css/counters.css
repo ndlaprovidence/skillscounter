@@ -1,0 +1,106 @@
+.wrap-evaluation-information {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+}
+
+.wrap-evaluation-information div {
+    width: 43%;
+    padding: 10px;    
+}
+
+.wrap-evaluation-information div h3 {
+    display: inline;
+    font-weight: 600;
+}
+
+.wrap-evaluation-information div h3:nth-of-type(odd) {
+    text-transform: uppercase;
+}
+
+.wrap-text {
+	display: flex;
+    justify-content: space-between;
+}
+
+.wrap-text div {
+    width: 32%;
+    padding: 10px;
+}
+
+.wrap-text div > h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.wrap-text div.student-information {
+    text-align: left;
+}
+
+.wrap-text div.evaluation-description {
+    text-align: center;
+}
+
+.wrap-text div.professor-information {
+    text-align: right;
+}
+
+.wrap-counters div {
+    flex-grow: 1;
+    width: 32%;
+}
+
+.wrap-counters {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap-counters div {
+    flex-grow: 1;
+    min-width: 25%;
+    max-height: auto;
+    overflow: hidden;
+}
+
+.wrap-counters div img {
+    width: 100%;
+}
+
+.wrap-counters div:nth-child(n) {
+    position: relative;
+    width: 25%;
+    flex-grow: 0;
+}
+
+.wrap-counters div:nth-child(n) .aiguillePreviousNote {
+    position: absolute;
+    transform: rotate(30.5deg);
+    left: 0%;
+    z-index: 2;
+}
+
+.wrap-counters div:nth-child(n) .aiguilleNewNote {
+    position: absolute;
+    transform: rotate(115.5deg);
+    left: 0%;
+    top: 0%;
+    z-index: 3;
+}
+
+.wrap-counters div span {
+    position: relative;
+    bottom: 40%;
+}
+
+.wrap-counters div span p {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 2.5em;
+    color: #000;  
+}
+
+p {
+    text-align: center;
+}
