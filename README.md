@@ -8,7 +8,7 @@ Thanks to [Symfony](https://symfony.com/) and [Ecole Directe](https://www.ecoled
 
 ## Screenshot of an evaluation
 
-![Skillscounter running][image_ref_jxjra3r9]
+![Skillscounter running](image_ref_jxjra3r9)
 *non-contractual image* 
 
 ### Installation
