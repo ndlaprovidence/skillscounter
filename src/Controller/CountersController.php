@@ -14,7 +14,14 @@ class CountersController extends AbstractController
     public function index(): Response
     {
         return $this->render('counters/index.html.twig', [
-            'controller_name' => 'CountersController',
+            'newNote1' => 19,
+            'newNote2' => 12.5,
+            'newNote3' => 10,
+            'newNote4' => 7.5,
+            'oldNote1' => 12.5,
+            'oldNote2' => 13,
+            'oldNote3' => 16.5,
+            'oldNote4' => 10,
         ]);
     }
 }

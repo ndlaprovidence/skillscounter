@@ -63,6 +63,10 @@
 
 .wrap-counters div img {
     width: 100%;
+    -webkit-transition: all 1s 1s ease-in-out;
+    -moz-transition: all 1s 1s ease-in-out;
+    -o-transition: all 1s 1s ease-in-out;
+    transition: all 1s 1s ease-in-out;
 }
 
 .wrap-counters div:nth-child(n) {
@@ -73,14 +77,14 @@
 
 .wrap-counters div:nth-child(n) .aiguillePreviousNote {
     position: absolute;
-    transform: rotate(30.5deg);
+    /* transform: rotate(30.5deg); */
     left: 0%;
     z-index: 2;
 }
 
 .wrap-counters div:nth-child(n) .aiguilleNewNote {
     position: absolute;
-    transform: rotate(115.5deg);
+    /* transform: rotate(115.5deg); */
     left: 0%;
     top: 0%;
     z-index: 3;
@@ -179,4 +183,11 @@
     text-align: center;
     font-style: italic;
     font-size: 1rem;
+}
+
+.arrow-comparison {
+    -webkit-transition: all 1s 1s ease-in-out;
+    -moz-transition: all 1s 1s ease-in-out;
+    -o-transition: all 1s 1s ease-in-out;
+    transition: all 1s 1s ease-in-out;
 }

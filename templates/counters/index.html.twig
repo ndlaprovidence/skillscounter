@@ -33,28 +33,28 @@
     </div>
 
     <div class="wrap-counters">
-        <div>
+        <div class="first-note" data-new-note-first-cpt="{{ newNote1 }}" data-old-note-first-cpt="{{ oldNote1 }}">
             <img src="assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
             <h3 class="subject1">test1</h3>
             <p>25%</p>
         </div>
-        <div>
+        <div class="second-note" data-new-note-second-cpt="{{ newNote2 }}" data-old-note-second-cpt="{{ oldNote2 }}">
             <img src="assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
             <h3 class="subject2">test2</h3>
             <p>25%</p>
         </div>
-        <div>
+        <div class="third-note" data-new-note-third-cpt="{{ newNote3 }}" data-old-note-third-cpt="{{ oldNote3 }}">
             <img src="assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
             <h3 class="subject3">test3</h3>
             <p>25%</p>
         </div>
-        <div>
+        <div class="last-note" data-new-note-last-cpt="{{ newNote4 }}" data-old-note-last-cpt="{{ oldNote4 }}">
             <img src="assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="assets/images/counters/nouvelle_note.png"/>
@@ -77,7 +77,7 @@
         <div class="wrap-comparison">
             <div>
                 <h4>Old note</h4>
-                <h4>10.25/20</h4>
+                <h4 class="old-note-comparison-text"></h4>
                 <p>(18/08/2020)</p>
             </div>
             <div>
@@ -85,10 +85,12 @@
             </div>
             <div>
                 <h4>New note</h4>
-                <h4>13/20</h4>
+                <h4 class="new-note-comparison-text"></h4>
                 <p>(02/10/2020)</p>
             </div>
         </div>
     </div>
-
+{% endblock %}
+{% block javascripts %}
+    <script src="assets/js/countersAndComparison.js"></script>
 {% endblock %}
