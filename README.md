@@ -17,7 +17,7 @@ Thanks to [Symfony](https://symfony.com/) and [Ecole Directe](https://www.ecoled
 
 ```dos
 git clone https://github.com/ndlaprovidence/skillscounter  
-cd Skillscounter
+cd skillscounter
 composer install
 ```
 
@@ -104,7 +104,7 @@ DATABASE_URL=pgsql://skillscounter:aSecurePassword@127.0.0.1:5432/skillscounter?
 ```
 **Enter this commands in a terminal prompt**:
 ```yaml
-# cd joliquiz
+# cd skillscoounter
 php bin/console doctrine:database:create
 ```
 **If an error occurred "could not find driver", enter this command in a terminal prompt (and re-enter the command above)**:
@@ -116,7 +116,7 @@ sudo apt install php-pgsql
 **Enter this commands in a terminal prompt**:
 
 ```yaml
-# cd joliquiz
+# cd skillscounter
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 php bin/console server:start
