@@ -24,8 +24,27 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Consultation évaluation</a>                        
                     </li>  
+                    <ul class="nav-item">
+                        {% if is_granted('ROLE_USER') %}
+                        <li>
+                            <div class="nav-link disabled">
+                            <i class="fas fa-user"></i>
+                            {% if app.user %}
+                                <strong>{{ app.user.username }}</strong>
+                            {% endif %}
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="nav-link" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </ul>
-                <a class="displayed-name-prof" href="#">{{prof_name}}</a>                        
+                {#<a class="displayed-name-prof" href="#">{{prof_name}}</a>#}                   
             </div>
         </nav>
 
