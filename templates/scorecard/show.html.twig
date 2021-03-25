@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Scorecard{% endblock %}
+
+{% block body %}
+    <h1>Scorecard</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ scorecard.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ scorecard.label }}</td>
+            </tr>
+            <tr>
+                <th>NbCounter</th>
+                <td>{{ scorecard.nbCounter }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('scorecard_index') }}">back to list</a>
+
+    <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">edit</a>
+
+    {{ include('scorecard/_delete_form.html.twig') }}
+{% endblock %}
