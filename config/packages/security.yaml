@@ -1,15 +1,36 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        chain_provider:
+            chain:
+                providers: [app_student_provider, app_teacher_provider]
+        app_student_provider:
+            entity:
+                class: App\Entity\Student
+                property: username
+        app_teacher_provider:
+            entity:
+                class: App\Entity\Teacher
+                property: username
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
-            anonymous: true
-            lazy: true
-            provider: users_in_memory
+            dev:
+                pattern: ^/(_(profiler|wdt)|css|images|js)/
+                security: false
+            main:
+                anonymous: true
+                lazy: true
+                provider: chain_provider
+                guard:
+                     authenticators:
+                          - App\Security\LoginFormAuthenticator
+                logout:
+                     path: app_logout
+                     # where to redirect after logout
+                     # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -22,3 +43,6 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
