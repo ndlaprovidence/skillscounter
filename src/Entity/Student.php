@@ -6,6 +6,7 @@ use App\Repository\StudentRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * 
  * @ORM\Table(name="tbl_student")
  * @ORM\Entity(repositoryClass=StudentRepository::class)
  */
