@@ -9,37 +9,182 @@
     <table class="table">
         <thead>
         <tr>
-            <th colspan="2">The table header</th>
+            <th colspan="2">Contrôle Continu</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>1ERE TRIM 1</td>
+            <td><input type="number"  id="number" ></td>
         </tr>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>1ERE TRIM 2</td>
+            <td><input type="number"  id="number" ></td>
         </tr>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>1ERE TRIM 3</td>
+            <td><input type="number"  id="number" ></td>
         </tr>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>TLE TRIM 1</td>
+            <td><input type="number"  id="number" ></td>
         </tr>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>TLE TRIM 2</td>
+            <td><input type="number"  id="number" ></td>
         </tr>
         <tr>
-            <td>The table body</td>
-            <td>with two columns</td>
+            <td>TLE TRIM 3</td>
+            <td><input type="number"  id="number" ></td>
+        </tr>
+        <tr>
+            <td>Moyenne</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Valeur en pourcentage de la note sur le total</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Point gagner</td>
+            <td></td>
         </tr>
     </tbody>
     </table>
     </div>
 
+    <div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th colspan="5">Epreuves Continu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>EP1</td>
+            <td>EP2</td>
+            <td>EP3</td>
+            <td>Moyenne</td>
+        </tr>
+        <tr>
+            <td>ENSC. SCIENTIFIQUE</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>HISTOIRE GEOGRAPHIE</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>LVA</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>LVB</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>EPS</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>SPE ABANDONNEE</td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td><input type="number"  id="number" ></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4">Moyenne</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="4">Valeur en pourcentage de la note sur le total</td>
+            <td>30 %</td>
+        </tr>
+        <tr>
+            <td colspan="4">Point gagner</td>
+            <td></td>
+        </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th colspan="3">Contrôle Continu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Français E</td>
+                <td>Français O</td>
+                <td>Philosophie</td>
+            </tr>
+            <tr>
+                <td><input type="number"  id="number" ></td>
+                <td><input type="number"  id="number" ></td>
+                <td><input type="number"  id="number" ></td>
+            </tr>
+            <tr>
+                <td>5 %</td>
+                <td>5 %</td>
+                <td>8 %</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th colspan="3">Contrôle Continu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GRAND ORAL</td>
+                <td>SPECIALITE 1</td>
+                <td>SPECIALITE 2</td>
+            </tr>
+            <tr>
+                <td><input type="number"  id="number" ></td>
+                <td><input type="number"  id="number" ></td>
+                <td><input type="number"  id="number" ></td>
+            </tr>
+            <tr>
+                <td>10 %</td>
+                <td>16 %</td>
+                <td>16 %</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
     <a href="{{ path('note_simulation_new') }}">Create new</a>
 {% endblock %}
