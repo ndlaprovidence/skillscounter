@@ -69,13 +69,37 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         if (!$this->csrfTokenManager->isTokenValid($token)) {
             throw new InvalidCsrfTokenException();
         }
-
+        
         $username = $credentials['username'];
-        $password = random_bytes(15);
+        dump($username);
+        $password = $credentials['password'];
+        dump($password);                      
+        $response = $this->client->request(
+            'POST',
+            'https://api.ecoledirecte.com/v3/login.awp',
+            [
+                'body' => 'data= {
+                    "identifiant": "' . $username . '" ,
+                    "motdepasse": "' . urlencode($password) .  '" 
+                    
+      
+                }',
+            ]
+        );
+         
+        $ecoleDirecteResponse = json_decode($response->getContent());
+        $ecoleDirecteCode = $ecoleDirecteResponse->code;
+        $ecoleDirecteMessage = $ecoleDirecteResponse->message;
+        
+        $ecoleDirectedata = $ecoleDirecteResponse->data->accounts;
 
-        $em = $this->entityManager;
-        $user = $em->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+        dump($ecoleDirectedata);
 
+
+        $em = $this->entityManager;      
+        $user= $em->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+        
+/*
         if (!$user) {
             $user = new User();
             $user->SetUsername($username);
@@ -86,6 +110,12 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         }
 
         return $user;
+
+        */
+
+        return null ;
+
+        
     }
 
     public function checkCredentials($credentials, UserInterface $user)
@@ -94,7 +124,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $username = $credentials['username'];
         $password = $credentials['password'];
         
-
+        
         $response = $this->client->request(
             'POST',
             'https://api.ecoledirecte.com/v3/login.awp',
@@ -106,10 +136,13 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
                 }',
             ]
         );
-
-        $ecoleDirecteResponse = json_decode($response->getContent());
-        $ecoleDirecteCode = $ecoleDirecteResponse->code;
-        $ecoleDirecteMessage = $ecoleDirecteResponse->message;
+        // var_dump($ecoleDirecteResponse);
+        // $ecoleDirecteResponse = json_decode($response->getContent());
+        // var_dump($ecoleDirecteResponse);
+        // $ecoleDirecteCode = $ecoleDirecteResponse->code;
+        // var_dump($ecoleDirecteResponse);
+        // $ecoleDirecteMessage = $ecoleDirecteResponse->message;
+        // var_dump($ecoleDirecteResponse);
 
         switch ($ecoleDirecteCode) {
             case 200:
