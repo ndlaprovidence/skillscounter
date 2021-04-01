@@ -10,7 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Label</th>
-                <th>NbCounter</th>
+                <th>Compteur</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ scorecard.id }}</td>
                 <td>{{ scorecard.label }}</td>
-                <td>{{ scorecard.nbCounter }}</td>
+                <td>{{ scorecard.counter }}</td>
                 <td>
                     <a href="{{ path('scorecard_show', {'id': scorecard.id}) }}">show</a>
                     <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">edit</a>

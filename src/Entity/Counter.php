@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CounterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,9 +26,19 @@ class Counter
     private $label;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $coefficient;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Scorecard::class, mappedBy="Counter")
+     */
+    private $scorecards;
+
+    public function __construct()
+    {
+        $this->scorecards = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,15 +57,49 @@ class Counter
         return $this;
     }
 
-    public function getCoefficient(): ?int
+    public function getCoefficient(): ?float
     {
         return $this->coefficient;
     }
 
-    public function setCoefficient(int $coefficient): self
+    public function setCoefficient(float $coefficient): self
     {
         $this->coefficient = $coefficient;
 
         return $this;
     }
+
+    /**
+     * @return Collection|Scorecard[]
+     */
+    public function getScorecards(): Collection
+    {
+        return $this->scorecards;
+    }
+
+    public function addScorecard(Scorecard $scorecard): self
+    {
+        if (!$this->scorecards->contains($scorecard)) {
+            $this->scorecards[] = $scorecard;
+            $scorecard->addCounter($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScorecard(Scorecard $scorecard): self
+    {
+        if ($this->scorecards->removeElement($scorecard)) {
+            $scorecard->removeCounter($this);
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->label;
+    }
+
+
 }

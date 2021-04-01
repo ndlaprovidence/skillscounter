@@ -10,13 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/*
+/**
  * @Route("/counter")
  */
 class CounterController extends AbstractController
 {
     /**
-     * @Route("/counter", name="counter_index", methods={"GET"})
+     * @Route("/", name="counter_index", methods={"GET"})
      */
     public function index(CounterRepository $counterRepository): Response
     {

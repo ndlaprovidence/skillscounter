@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ScorecardRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,9 +26,14 @@ class Scorecard
     private $label;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToMany(targetEntity=Counter::class, inversedBy="scorecards")
      */
-    private $nbCounter;
+    private $Counter;
+
+    public function __construct()
+    {
+        $this->Counter = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -45,14 +52,26 @@ class Scorecard
         return $this;
     }
 
-    public function getNbCounter(): ?int
+    /**
+     * @return Collection|Counter[]
+     */
+    public function getCounter(): Collection
     {
-        return $this->nbCounter;
+        return $this->Counter;
     }
 
-    public function setNbCounter(int $nbCounter): self
+    public function addCounter(Counter $counter): self
     {
-        $this->nbCounter = $nbCounter;
+        if (!$this->Counter->contains($counter)) {
+            $this->Counter[] = $counter;
+        }
+
+        return $this;
+    }
+
+    public function removeCounter(Counter $counter): self
+    {
+        $this->Counter->removeElement($counter);
 
         return $this;
     }
