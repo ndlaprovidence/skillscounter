@@ -21,6 +21,7 @@ class NoteSimulationController extends AbstractController
     public function index(NoteSimulationRepository $noteSimulationRepository): Response
     {
         return $this->render('note_simulation/index.html.twig', [
+            'number' => 5,
             'note_simulations' => $noteSimulationRepository->findAll(),
         ]);
     }
@@ -91,4 +92,6 @@ class NoteSimulationController extends AbstractController
 
         return $this->redirectToRoute('note_simulation_index');
     }
+
+    
 }
