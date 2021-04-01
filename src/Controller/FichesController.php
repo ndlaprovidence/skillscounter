@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
 class FichesController extends AbstractController
 {
     /**
@@ -23,6 +25,20 @@ class FichesController extends AbstractController
     public function delete(): Response
     {
         return $this->render('fiches/delete.html.twig', [
+            'controller_name' => 'FichesController',
+        ]);
+    }
+    public function modify(): Response
+    {
+        
+
+    }
+    /**
+     * @Route("/BTS", name="BTS")
+     */
+    public function bts(): Response
+    {
+        return $this->render('fiches/bts.html.twig', [
             'controller_name' => 'FichesController',
         ]);
     }
