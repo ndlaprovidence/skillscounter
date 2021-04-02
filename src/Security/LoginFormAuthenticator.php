@@ -2,7 +2,7 @@
 
 namespace App\Security;
 
-use Symfony\Component\Security\Core\User\User;
+//use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -20,6 +20,7 @@ use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+use Symfony\Component\Security\Core\User\User;
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
@@ -73,7 +74,8 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $username = $credentials['username'];
         dump($username);
         $password = $credentials['password'];
-        dump($password);                      
+        dump($password);  
+
         $response = $this->client->request(
             'POST',
             'https://api.ecoledirecte.com/v3/login.awp',
@@ -91,7 +93,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $ecoleDirecteCode = $ecoleDirecteResponse->code;
         $ecoleDirecteMessage = $ecoleDirecteResponse->message;
         
-        $ecoleDirectedata = $ecoleDirecteResponse->data->accounts;
+        $ecoleDirectedata = $ecoleDirecteResponse->data->accounts[0]->typeCompte;
 
         dump($ecoleDirectedata);
 
