@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteSimulation{% endblock %}
+
+{% block body %}
+    <h1>NoteSimulation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ note_simulation.id }}</td>
+            </tr>
+            <tr>
+                <th>A1T1</th>
+                <td>{{ note_simulation.A1T1 }}</td>
+            </tr>
+            <tr>
+                <th>A1T2</th>
+                <td>{{ note_simulation.A1T2 }}</td>
+            </tr>
+            <tr>
+                <th>A1T3</th>
+                <td>{{ note_simulation.A1T3 }}</td>
+            </tr>
+            <tr>
+                <th>A2T1</th>
+                <td>{{ note_simulation.A2T1 }}</td>
+            </tr>
+            <tr>
+                <th>A2T2</th>
+                <td>{{ note_simulation.A2T2 }}</td>
+            </tr>
+            <tr>
+                <th>A2T3</th>
+                <td>{{ note_simulation.A2T3 }}</td>
+            </tr>
+            <tr>
+                <th>ScienEP1</th>
+                <td>{{ note_simulation.ScienEP1 }}</td>
+            </tr>
+            <tr>
+                <th>ScienEP2</th>
+                <td>{{ note_simulation.ScienEP2 }}</td>
+            </tr>
+            <tr>
+                <th>ScienEP3</th>
+                <td>{{ note_simulation.ScienEP3 }}</td>
+            </tr>
+            <tr>
+                <th>HistEP1</th>
+                <td>{{ note_simulation.HistEP1 }}</td>
+            </tr>
+            <tr>
+                <th>HistEP2</th>
+                <td>{{ note_simulation.HistEP2 }}</td>
+            </tr>
+            <tr>
+                <th>HistEP3</th>
+                <td>{{ note_simulation.HistEP3 }}</td>
+            </tr>
+            <tr>
+                <th>LVAEP1</th>
+                <td>{{ note_simulation.LVAEP1 }}</td>
+            </tr>
+            <tr>
+                <th>LVAEP2</th>
+                <td>{{ note_simulation.LVAEP2 }}</td>
+            </tr>
+            <tr>
+                <th>LVAEP3</th>
+                <td>{{ note_simulation.LVAEP3 }}</td>
+            </tr>
+            <tr>
+                <th>LVBEP1</th>
+                <td>{{ note_simulation.LVBEP1 }}</td>
+            </tr>
+            <tr>
+                <th>LVBEP2</th>
+                <td>{{ note_simulation.LVBEP2 }}</td>
+            </tr>
+            <tr>
+                <th>LVBEP3</th>
+                <td>{{ note_simulation.LVBEP3 }}</td>
+            </tr>
+            <tr>
+                <th>EPSEP1</th>
+                <td>{{ note_simulation.EPSEP1 }}</td>
+            </tr>
+            <tr>
+                <th>EPSEP2</th>
+                <td>{{ note_simulation.EPSEP2 }}</td>
+            </tr>
+            <tr>
+                <th>EPSEP3</th>
+                <td>{{ note_simulation.EPSEP3 }}</td>
+            </tr>
+            <tr>
+                <th>SPEEP1</th>
+                <td>{{ note_simulation.SPEEP1 }}</td>
+            </tr>
+            <tr>
+                <th>SPEEP2</th>
+                <td>{{ note_simulation.SPEEP2 }}</td>
+            </tr>
+            <tr>
+                <th>SPEEP3</th>
+                <td>{{ note_simulation.SPEEP3 }}</td>
+            </tr>
+            <tr>
+                <th>FranE</th>
+                <td>{{ note_simulation.FranE }}</td>
+            </tr>
+            <tr>
+                <th>FranO</th>
+                <td>{{ note_simulation.FranO }}</td>
+            </tr>
+            <tr>
+                <th>Philo</th>
+                <td>{{ note_simulation.Philo }}</td>
+            </tr>
+            <tr>
+                <th>GrandOral</th>
+                <td>{{ note_simulation.GrandOral }}</td>
+            </tr>
+            <tr>
+                <th>Spe1</th>
+                <td>{{ note_simulation.Spe1 }}</td>
+            </tr>
+            <tr>
+                <th>Spe2</th>
+                <td>{{ note_simulation.Spe2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_simulation_index') }}">back to list</a>
+
+    <a href="{{ path('note_simulation_edit', {'id': note_simulation.id}) }}">edit</a>
+
+    {{ include('note_simulation/_delete_form.html.twig') }}
+{% endblock %}
