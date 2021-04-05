@@ -1,0 +1,101 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('../../assets/css/counters.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block title %}Evaluation{% endblock %}
+
+{% block body %}
+    <div class="wrap-evaluation-information">
+        <div>
+            <h3>Subject : </h3>
+            <h3>Communication Ressources Humaines</h3>
+        </div>
+        <div>
+            <h3>Evaluation : </h3>
+            <h3>{{ evaluation.label }} - {{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }}</h3>
+        </div>
+    </div>
+
+    <div class="wrap-text">
+        <div class="student-information">
+            <h3>student :</h3>
+            <h4 class="student-name">{{ evaluation.student.username }}</h4>
+            <h4 class="student-grade">Terminale STMG</h4>
+        </div>
+        <div class="evaluation-description">
+            <h3>description :</h3>
+            <h4>{{ evaluation.description }}</h4>
+        </div>
+        <div class="professor-information">
+            <h3>professor :</h3>
+            <h4>M. THOMAS</h4>
+        </div>
+    </div>
+
+    <div class="wrap-counters">
+        <div class="first-note" data-new-note-first-cpt="{{ evaluation.valueNote1 }}" data-old-note-first-cpt="{{ oldNote1 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h3 class="subject1">{{ evaluation.scorecard.counter[0].label }}</h3>
+            <p>{{ evaluation.scorecard.counter[0].coefficient*100 }}%</p>
+        </div>
+        <div class="second-note" data-new-note-second-cpt="{{ evaluation.valueNote2 }}" data-old-note-second-cpt="{{ oldNote2 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h3 class="subject2">{{ evaluation.scorecard.counter[1].label }}</h3>
+            <p>{{ evaluation.scorecard.counter[1].coefficient*100 }}%</p>
+        </div>
+        <div class="third-note" data-new-note-third-cpt="{{ evaluation.valueNote3 }}" data-old-note-third-cpt="{{ oldNote3 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h3 class="subject3">{{ evaluation.scorecard.counter[2].label }}</h3>
+            <p>{{ evaluation.scorecard.counter[2].coefficient*100 }}%</p>
+        </div>
+        <div class="last-note" data-new-note-last-cpt="{{ evaluation.valueNote4 }}" data-old-note-last-cpt="{{ oldNote4 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h3 class="subject4">{{ evaluation.scorecard.counter[3].label }}</h3>
+            <p>{{ evaluation.scorecard.counter[3].coefficient*100 }}%</p>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>Legend</h3>
+        <h4>
+            Grey needles: Old notes
+            <br/>
+            Black needles: : New notes
+        </h4>
+    </div>
+
+    <div class="comparison">
+        <h3>Comparison of notes</h3>
+        <div class="wrap-comparison">
+            <div>
+                <h4>Old note</h4>
+                <h4 class="old-note-comparison-text"></h4>
+                <p>({{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }})</p>
+            </div>
+            <div>
+                <img class="arrow-comparison" src="../../assets/images/counters/comparaison.png"/>
+            </div>
+            <div>
+                <h4>New note</h4>
+                <h4 class="new-note-comparison-text"></h4>
+                <p>(02/10/2020)</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('evaluation_index') }}">back to list</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="../../assets/js/countersAndComparison.js"></script>
+{% endblock %}

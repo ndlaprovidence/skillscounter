@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Counter;
 use App\Entity\Scorecard;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
@@ -14,7 +16,17 @@ class ScorecardType extends AbstractType
     {
         $builder
             ->add('label')
-            ->add('Counter', ChoiceType::class)
+            ->add('Counter', EntityType::class, [
+                // looks for choices from this entity
+                'class' => Counter::class,
+            
+                // uses the User.username property as the visible option string
+                'choice_label' => 'label',
+            
+                // used to render a select box, check boxes or radios
+                'multiple' => true,
+                'expanded' => true,
+            ])
         ;
     }
 

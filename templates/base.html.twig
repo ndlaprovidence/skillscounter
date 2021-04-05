@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/css/main.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <title>{% block title %}{% endblock %} - Mévole</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -19,10 +20,10 @@
                         <a class="nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nouvelle évaluation</a>
+                        <a class="nav-link" href="/evaluation/new">Nouvelle évaluation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Consultation évaluation</a>                        
+                        <a class="nav-link" href="/evaluation/">Consultation évaluation</a>                        
                     </li>  
                     <li class="nav-item">
                         <a class="nav-link" href="/subject">Matières</a>                        

@@ -30,9 +30,15 @@ class Scorecard
      */
     private $Counter;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Evaluation::class, mappedBy="scorecard")
+     */
+    private $evaluations;
+
     public function __construct()
     {
         $this->Counter = new ArrayCollection();
+        $this->evaluations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,6 +78,36 @@ class Scorecard
     public function removeCounter(Counter $counter): self
     {
         $this->Counter->removeElement($counter);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Evaluation[]
+     */
+    public function getEvaluations(): Collection
+    {
+        return $this->evaluations;
+    }
+
+    public function addEvaluation(Evaluation $evaluation): self
+    {
+        if (!$this->evaluations->contains($evaluation)) {
+            $this->evaluations[] = $evaluation;
+            $evaluation->setScorecard($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvaluation(Evaluation $evaluation): self
+    {
+        if ($this->evaluations->removeElement($evaluation)) {
+            // set the owning side to null (unless already changed)
+            if ($evaluation->getScorecard() === $this) {
+                $evaluation->setScorecard(null);
+            }
+        }
 
         return $this;
     }
