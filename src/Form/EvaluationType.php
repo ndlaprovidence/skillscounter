@@ -18,7 +18,9 @@ class EvaluationType extends AbstractType
     {
         $builder
             ->add('label')
-            ->add('description', TextType::class)
+            ->add('description', TextType::class, [
+                'required' => false,
+            ])
             ->add('dateEvaluation', DateType::class, [
                 'widget' => 'single_text',
             ])

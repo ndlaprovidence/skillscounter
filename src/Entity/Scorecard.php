@@ -6,6 +6,7 @@ use App\Repository\ScorecardRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="tbl_scorecard")
@@ -26,6 +27,12 @@ class Scorecard
     private $label;
 
     /**
+     * @Assert\Count(
+     *      min = 1,
+     *      max = 4,
+     *      minMessage = "You must specify at least one counter",
+     *      maxMessage = "You cannot specify more than {{ limit }} counters"
+     * )
      * @ORM\ManyToMany(targetEntity=Counter::class, inversedBy="scorecards")
      */
     private $Counter;

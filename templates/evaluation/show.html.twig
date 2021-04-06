@@ -11,7 +11,7 @@
     <div class="wrap-evaluation-information">
         <div>
             <h3>Subject : </h3>
-            <h3>Communication Ressources Humaines</h3>
+            <h3>Communication Ressources Humaines</h3> {# A récupérer via le prof #}
         </div>
         <div>
             <h3>Evaluation : </h3>
@@ -22,8 +22,8 @@
     <div class="wrap-text">
         <div class="student-information">
             <h3>student :</h3>
-            <h4 class="student-name">{{ evaluation.student.username }}</h4>
-            <h4 class="student-grade">Terminale STMG</h4>
+            <h4 class="student-name">{{ evaluation.student.username }}</h4> 
+            <h4 class="student-grade">Terminale STMG</h4> {# A récupérer via l'élève #}
         </div>
         <div class="evaluation-description">
             <h3>description :</h3>
@@ -31,7 +31,7 @@
         </div>
         <div class="professor-information">
             <h3>professor :</h3>
-            <h4>M. THOMAS</h4>
+            <h4>M. THOMAS</h4> {# A récupérer via la fiche #}
         </div>
     </div>
 
@@ -81,7 +81,13 @@
             <div>
                 <h4>Old note</h4>
                 <h4 class="old-note-comparison-text"></h4>
-                <p>({{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }})</p>
+                <p> 
+                    {% if datePreviousEvaluation is defined %}
+                        ({{ datePreviousEvaluation ? datePreviousEvaluation|date('d/m/Y') : ''  }})
+                    {% else %}
+                        (No previous evaluation)
+                    {% endif %} 
+                </p>
             </div>
             <div>
                 <img class="arrow-comparison" src="../../assets/images/counters/comparaison.png"/>
@@ -89,7 +95,7 @@
             <div>
                 <h4>New note</h4>
                 <h4 class="new-note-comparison-text"></h4>
-                <p>(02/10/2020)</p>
+                <p>({{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }})</p>
             </div>
         </div>
     </div>

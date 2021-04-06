@@ -113,25 +113,49 @@ document.addEventListener('DOMContentLoaded', function() {
     
     var newNoteTextArea = document.querySelector('.new-note-comparison-text');
     newNoteTextArea.textContent = newAverageNote + "/20";
+
+    if (newAverageNote >= 0) {
+        newNoteTextArea.textContent = newAverageNote + "/20";
+    }
+    else {
+        newNoteTextArea.textContent = "Notes values undefined";
+    }
+    
     // ------------
 
+    cptNotesValides = 0;
+    
     // Old note average score
     var oldAverageNote = 0;
     var tabOldNote = [oldCpt1, oldCpt2, oldCpt3, oldCpt4];
-    for (i = 0; i < tabOldNote.length; i++ ) {
-        oldAverageNote += parseFloat(tabOldNote[i]);
+    for (i = 0; i < tabOldNote.length; i++ ) 
+    {
+        if(tabOldNote[i] >= 0) {
+            oldAverageNote += parseFloat(tabOldNote[i]);
+            cptNotesValides++;
+        }
     }
-    oldAverageNote = oldAverageNote / 4;
+    
+    oldAverageNote = oldAverageNote / cptNotesValides;
 
-    if ((oldAverageNote % 4) < 0.5) {
+    if ((oldAverageNote % 4) < 0.5) 
+    {
         oldAverageNote = Math.floor(oldAverageNote);
     }
-    else if ((oldAverageNote % 4) > 0.5) {
+    else if ((oldAverageNote % 4) > 0.5) 
+    {
         oldAverageNote = Math.ceil(oldAverageNote);
     }
     
+    console.log(cptNotesValides);
+
     var oldNoteTextArea = document.querySelector('.old-note-comparison-text');
-    oldNoteTextArea.textContent = oldAverageNote + "/20";
+    if (oldAverageNote >= 0) {
+        oldNoteTextArea.textContent = oldAverageNote + "/20";
+    }
+    else {
+        oldNoteTextArea.textContent = "no previous note";
+    }
     // ------------
 
     // Comparison arrow orientation

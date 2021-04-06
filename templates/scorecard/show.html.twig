@@ -20,9 +20,11 @@
                 <td>
                 {% for counter in scorecard.counter %}
                     {{ counter }}<br/>
-                {% endfor %}
+
                 {% else %}
                     no counter found
+                    </td>
+                {% endfor %}
                 </td>
             </tr>
         </tbody>

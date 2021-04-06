@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use DateTime;
+use App\Entity\Student;
 use App\Entity\Evaluation;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @method Evaluation|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +49,20 @@ class EvaluationRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    
+    public function findPreviousEvaluation(Student $student, DateTime $date)
+    {
+        $qb = $this->createQueryBuilder('eval')
+            ->where('eval.student = :student')
+            ->andwhere('eval.dateEvaluation < :dateEval')
+            ->setParameter('dateEval', $date)
+            ->setParameter('student', $student)
+            ->setMaxResults(1)
+            ->orderBy('eval.dateEvaluation', 'DESC');
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }

@@ -53,13 +53,34 @@ class EvaluationController extends AbstractController
      */
     public function show(Evaluation $evaluation): Response
     {
-        return $this->render('evaluation/show.html.twig', [
-            'evaluation' => $evaluation,
-            'oldNote1' => 12.5,
-            'oldNote2' => 13,
-            'oldNote3' => 16.5,
-            'oldNote4' => 10,
-        ]);
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $sqlResultPreviousEvaluation = $this->getDoctrine()
+            ->getRepository(Evaluation::class)
+            ->findPreviousEvaluation($evaluation->getStudent(), $evaluation->getDateEvaluation());
+
+        if ($sqlResultPreviousEvaluation != null) {
+
+            $previousEvaluation = $sqlResultPreviousEvaluation[0];
+
+            return $this->render('evaluation/show.html.twig', [
+                'evaluation' => $evaluation,
+                'oldNote1' => $previousEvaluation->getValueNote1(),
+                'oldNote2' => $previousEvaluation->getValueNote2(),
+                'oldNote3' => $previousEvaluation->getValueNote3(),
+                'oldNote4' => $previousEvaluation->getValueNote4(),
+                'datePreviousEvaluation' => $previousEvaluation->getDateEvaluation(),
+            ]);
+        }
+        else {
+            return $this->render('evaluation/show.html.twig', [
+                'evaluation' => $evaluation,
+                'oldNote1' => -1,
+                'oldNote2' => -1,
+                'oldNote3' => -1,
+                'oldNote4' => -1,
+            ]);
+        }
     }
 
     /**
