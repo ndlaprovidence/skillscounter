@@ -8,8 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var oldNeedleCpt1 = divNoteCpt1.children.item(1);  // Retrieve the oldNeedle item (img) contained in the the div with the class '.first-note'
     var newNeedleCpt1 = divNoteCpt1.children.item(2);  // Retrieve the newNeedle item (img) contained in the the div with the class '.first-note'
     
-    oldNeedleCpt1.style.transform = `rotateZ(${oldCpt1*9}deg)`;  // Needles rotation
-    newNeedleCpt1.style.transform = `rotateZ(${newCpt1*9}deg)`;
+    if (oldCpt1 < 0) {
+        oldNeedleCpt1.style.visibility = 'hidden';
+    }
+    else {
+        oldNeedleCpt1.style.transform = `rotateZ(${oldCpt1*9}deg)`;  // Needles rotation
+    }
+
+    if (newCpt1 < 0) {
+        newNeedleCpt1.style.visibility = 'hidden';
+    }
+    else {
+        newNeedleCpt1.style.transform = `rotateZ(${newCpt1*9}deg)`;
+    }
     // ------------
     
     // Second Counter
@@ -18,10 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var newCpt2 = divNoteCpt2.dataset.newNoteSecondCpt; 
 
     var oldNeedleCpt2 = divNoteCpt2.children.item(1);  
-    var newNeedleCpt2 = divNoteCpt2.children.item(2);  
+    var newNeedleCpt2 = divNoteCpt2.children.item(2); 
     
-    oldNeedleCpt2.style.transform = `rotateZ(${oldCpt2*9}deg)`;  
-    newNeedleCpt2.style.transform = `rotateZ(${newCpt2*9}deg)`;
+    if (oldCpt2 < 0) {
+        oldNeedleCpt2.style.visibility = 'hidden';
+    }
+    else {
+        oldNeedleCpt2.style.transform = `rotateZ(${oldCpt2*9}deg)`;  // Needles rotation
+    }
+
+    if (newCpt2 < 0) {
+        newNeedleCpt2.style.visibility = 'hidden';
+    }
+    else {
+        newNeedleCpt2.style.transform = `rotateZ(${newCpt2*9}deg)`;
+    }
     // ------------
     
     // Third Counter
@@ -32,8 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var oldNeedleCpt3 = divNoteCpt3.children.item(1); 
     var newNeedleCpt3 = divNoteCpt3.children.item(2); 
     
-    oldNeedleCpt3.style.transform = `rotateZ(${oldCpt3*9}deg)`; 
-    newNeedleCpt3.style.transform = `rotateZ(${newCpt3*9}deg)`;
+    if (oldCpt3 < 0) {
+        oldNeedleCpt3.style.visibility = 'hidden';
+    }
+    else {
+        oldNeedleCpt3.style.transform = `rotateZ(${oldCpt3*9}deg)`;  // Needles rotation
+    }
+
+    if (newCpt3 < 0) {
+        newNeedleCpt3.style.visibility = 'hidden';
+    }
+    else {
+        newNeedleCpt3.style.transform = `rotateZ(${newCpt3*9}deg)`;
+    }
     // ------------
 
     // Last Counter
@@ -43,22 +76,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var oldNeedleCpt4 = divNoteCpt4.children.item(1);  
     var newNeedleCpt4 = divNoteCpt4.children.item(2);   
-    oldNeedleCpt4.style.transform = `rotateZ(${oldCpt4*9}deg)`; 
-    newNeedleCpt4.style.transform = `rotateZ(${newCpt4*9}deg)`;
+
+    if (oldCpt4 < 0) {
+        oldNeedleCpt4.style.visibility = 'hidden';
+    }
+    else {
+        oldNeedleCpt4.style.transform = `rotateZ(${oldCpt4*9}deg)`;  // Needles rotation
+    }
+
+    if (newCpt4 < 0) {
+        newNeedleCpt4.style.visibility = 'hidden';
+    }
+    else {
+        newNeedleCpt4.style.transform = `rotateZ(${newCpt4*9}deg)`;
+    }
     // ------------
 
     // New note average score
     var newAverageNote = 0;
+    var cptNotesValides = 0;
     var tabNewNote = [newCpt1, newCpt2, newCpt3, newCpt4];
     for (i = 0; i < tabNewNote.length; i++ ) {
-        newAverageNote += parseFloat(tabNewNote[i]);
+        if(tabNewNote[i] >= 0) {
+            newAverageNote += parseFloat(tabNewNote[i]);
+            cptNotesValides++;
+        }
     }
-    newAverageNote = newAverageNote / 4;
+    newAverageNote = newAverageNote / cptNotesValides;
 
-    if ((newAverageNote % 4) < 0.5) {
+    if ((newAverageNote % cptNotesValides) < 0.5) {
         newAverageNote = Math.floor(newAverageNote);
     }
-    else if ((newAverageNote % 4) > 0.5) {
+    else if ((newAverageNote % cptNotesValides) > 0.5) {
         newAverageNote = Math.ceil(newAverageNote);
     }
     

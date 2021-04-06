@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210405182127 extends AbstractMigration
+final class Version20210406120410 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -21,7 +21,7 @@ final class Version20210405182127 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE tbl_counter (id INT AUTO_INCREMENT NOT NULL, label VARCHAR(255) NOT NULL, coefficient DOUBLE PRECISION NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE tbl_evaluation (id INT AUTO_INCREMENT NOT NULL, scorecard_id INT NOT NULL, student_id INT NOT NULL, label VARCHAR(255) NOT NULL, date_evaluation DATE NOT NULL, value_note1 DOUBLE PRECISION DEFAULT NULL, value_note2 DOUBLE PRECISION DEFAULT NULL, value_note3 DOUBLE PRECISION DEFAULT NULL, value_note4 DOUBLE PRECISION DEFAULT NULL, INDEX IDX_7A60EFE450253A7D (scorecard_id), INDEX IDX_7A60EFE4CB944F1A (student_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE tbl_evaluation (id INT AUTO_INCREMENT NOT NULL, scorecard_id INT NOT NULL, student_id INT NOT NULL, label VARCHAR(255) NOT NULL, date_evaluation DATE NOT NULL, value_note1 DOUBLE PRECISION DEFAULT NULL, value_note2 DOUBLE PRECISION DEFAULT NULL, value_note3 DOUBLE PRECISION DEFAULT NULL, value_note4 DOUBLE PRECISION DEFAULT NULL, description LONGTEXT DEFAULT NULL, INDEX IDX_7A60EFE450253A7D (scorecard_id), INDEX IDX_7A60EFE4CB944F1A (student_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE tbl_scorecard (id INT AUTO_INCREMENT NOT NULL, label VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE scorecard_counter (scorecard_id INT NOT NULL, counter_id INT NOT NULL, INDEX IDX_DCE1D8550253A7D (scorecard_id), INDEX IDX_DCE1D85FCEEF2E3 (counter_id), PRIMARY KEY(scorecard_id, counter_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE tbl_student (id INT NOT NULL, student_number VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
