@@ -17,7 +17,9 @@
             </tr>
             <tr>
                 <th>Compteur</th>
-                <td>{{ scorecard.counter }}</td>
+                {% for counter in scorecard.counter %}
+                    <td>{{ counter.label }}</td>
+                {% endfor %}
             </tr>
         </tbody>
     </table>

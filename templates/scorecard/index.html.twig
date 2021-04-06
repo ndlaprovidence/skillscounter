@@ -19,7 +19,9 @@
             <tr>
                 <td>{{ scorecard.id }}</td>
                 <td>{{ scorecard.label }}</td>
-                <td>{{ scorecard.counter }}</td>
+                {% for counter in scorecard.counter %}
+                    <td>{{ counter.label }}</td>
+                {% endfor %}
                 <td>
                     <a href="{{ path('scorecard_show', {'id': scorecard.id}) }}">show</a>
                     <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">edit</a>

@@ -100,6 +100,4 @@ class Counter
     {
         return $this->label;
     }
-
-
 }
