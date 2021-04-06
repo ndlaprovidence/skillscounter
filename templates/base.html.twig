@@ -5,6 +5,11 @@
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/css/main.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        
+
+
+
+        
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -23,28 +28,22 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Consultation évaluation</a>                        
-                    </li>  
-                    <ul class="nav-item">
-                        {% if is_granted('ROLE_USER') %}
-                        <li>
-                            <div class="nav-link disabled">
-                            <i class="fas fa-user"></i>
-                            {% if app.user %}
-                                <strong>{{ app.user.username }}</strong>
-                            {% endif %}
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
-                        </li>
+                    </li>                      
+                </ul>     
+                <span class="nav-item navbar-text username-color">
+                        {% if app.user %}
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link username-color name" href="#"><i class="fas fa-user"></i> {{app.user.username}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link username-color logout-link" href="/logout"><i class="fas fa-power-off"></i>D</a>
+                                </li>
+                            </ul>
                         {% else %}
-                        <li>
-                            <a class="nav-link" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
-                        </li>
+                            <a class="nav-link username-color name" href="/login"><i class="fas fa-sign-in-alt"></i> Connexion</a>
                         {% endif %}
-                    </ul>
-                </ul>
-                {#<a class="displayed-name-prof" href="#">{{prof_name}}</a>#}                   
+                    </span>             
             </div>
         </nav>
 

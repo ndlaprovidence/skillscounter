@@ -2,10 +2,14 @@
 
 namespace App\Security;
 
-//use App\Entity\User;
+use App\Entity\User;
+use App\Entity\Teacher;
+use App\Entity\Student;
+use Psr\Log\LoggerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
+//use Symfony\Component\Security\Core\User\User;
 use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -20,7 +24,7 @@ use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Symfony\Component\Security\Core\User\User;
+
 
 class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface
 {
@@ -33,6 +37,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     private $csrfTokenManager;
     private $passwordEncoder;
     private $client;
+    private $logger;
 
     public function __construct(EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordEncoderInterface $passwordEncoder, HttpClientInterface $client )
     {
@@ -102,20 +107,39 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         $user= $em->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
         
 /*
-        if (!$user) {
-            $user = new User();
-            $user->SetUsername($username);
-            $user->SetPassword($this->passwordEncoder->encodePassword($user, $password));
-            $em->persist($user);
+        if (!$studient) {
+            $studient = new studient();
+            $studient->SetUsername($username);
+            $studient->SetPassword($this->passwordEncoder->encodePassword($studient, $password));
+            $em->persist($studient);
             $em->flush();
             
-        }
+        }elseif (!teacher) {
+            $teacher = new User();
+            $teacher->SetUsername($username);
+            $teacher->SetPassword($this->passwordEncoder->encodePassword($teacher, $password));
+            $em->persist($teacher);
+            $em->flush();
+
+        })
 
         return $user;
 
         */
 
-        return null ;
+        if (!$user) {
+            // fail authentication with a custom error
+            // throw new CustomUserMessageAuthenticationException('Username could not be found.');
+
+            // Save new user in database
+            $user = new User();
+            $user->setUsername($username);
+            $user->setPassword($this->passwordEncoder->encodePassword($user, $password));
+            $this->entityManager->persist($user);
+           $this->entityManager->flush();
+        }
+
+        return $user;
 
         
     }
@@ -138,14 +162,14 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
                 }',
             ]
         );
-        // var_dump($ecoleDirecteResponse);
-        // $ecoleDirecteResponse = json_decode($response->getContent());
-        // var_dump($ecoleDirecteResponse);
-        // $ecoleDirecteCode = $ecoleDirecteResponse->code;
-        // var_dump($ecoleDirecteResponse);
-        // $ecoleDirecteMessage = $ecoleDirecteResponse->message;
-        // var_dump($ecoleDirecteResponse);
-
+        
+        $ecoleDirecteResponse = json_decode($response->getContent());
+        
+        $ecoleDirecteCode = $ecoleDirecteResponse->code;
+        
+        $ecoleDirecteMessage = $ecoleDirecteResponse->message;
+        
+        $this->logger->error($ecoleDirecteMessage);
         switch ($ecoleDirecteCode) {
             case 200:
                 // authentication success                
@@ -186,10 +210,19 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             return new RedirectResponse($targetPath);
         }
         return new RedirectResponse($this->urlGenerator->generate('home'));
+        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl()
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+    }
+
+    /**
+     * @required
+     */
+    public function setLogger(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
     }
 }

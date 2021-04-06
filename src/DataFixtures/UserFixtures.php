@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
     
     public function load(ObjectManager $manager)
     {
-        $superadmin = new Teacher();
+        $superadmin = new Teacher2();
         $superadmin->setUsername('superadmin');
         $superadmin->setRoles(array('ROLE_SUPER_ADMIN'));
         $password = $this->passwordEncoder->encodePassword($superadmin, 'superadmin');
