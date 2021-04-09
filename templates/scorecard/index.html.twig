@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scorecard index{% endblock %}
+{% block title %}{{'Scorecard index'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Scorecard index</h1>
+    <h1>{{'Scorecard index'|trans}}</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Label</th>
-                <th>Compteurs</th>
-                <th>actions</th>
+                <th>{{'Label'|trans}}</th>
+                <th>{{'Counters'|trans}}</th>
+                <th>{{'actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +25,17 @@
                     {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ path('scorecard_show', {'id': scorecard.id}) }}">show</a>
-                    <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">edit</a>
+                    <a href="{{ path('scorecard_show', {'id': scorecard.id}) }}">{{'show'|trans}}</a>
+                    <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">{{'edit'|trans}}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">{{'no records found'|trans}}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('scorecard_new') }}">Create new</a>
+    <a href="{{ path('scorecard_new') }}">{{'Create new'|trans}}</a>
 {% endblock %}

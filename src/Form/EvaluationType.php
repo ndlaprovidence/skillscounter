@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class EvaluationType extends AbstractType
 {
@@ -20,15 +21,19 @@ class EvaluationType extends AbstractType
             ->add('label')
             ->add('description', TextType::class, [
                 'required' => false,
+                'label' => 'description'
             ])
             ->add('dateEvaluation', DateType::class, [
                 'widget' => 'single_text',
             ])
-            ->add('valueNote1')
-            ->add('valueNote2')
-            ->add('valueNote3')
-            ->add('valueNote4')
+            ->add('valueNote1', NumberType::class, ['label' => 'Valeur de la première note'])
+            ->add('valueNote2', NumberType::class, ['label' => 'Valeur de la seconde note'])
+            ->add('valueNote3', NumberType::class, ['label' => 'Valeur de la troisième note'])
+            ->add('valueNote4', NumberType::class, ['label' => 'Valeur de la quatrième note'])
             ->add('scorecard', EntityType::class, [
+
+                'label' => 'Fiche',
+
                 // looks for choices from this entity
                 'class' => Scorecard::class,
             
@@ -40,6 +45,8 @@ class EvaluationType extends AbstractType
                 'expanded' => true,
             ])
             ->add('student', EntityType::class, [
+                'label' => 'Elève',
+
                 // looks for choices from this entity
                 'class' => Student::class,
             

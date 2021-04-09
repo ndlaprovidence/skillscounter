@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ScorecardType extends AbstractType
@@ -15,8 +16,10 @@ class ScorecardType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('label')
+            ->add('label', TextType::class, ['label' => 'Intitulé'])
             ->add('Counter', EntityType::class, [
+                'label' => 'Compteurs',
+
                 // looks for choices from this entity
                 'class' => Counter::class,
             

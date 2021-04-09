@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Counter{% endblock %}
+{% block title %}{{'Counter'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Counter</h1>
+    <h1>{{'Counter'|trans}}</h1>
 
     <table class="table">
         <tbody>
@@ -12,19 +12,19 @@
                 <td>{{ counter.id }}</td>
             </tr>
             <tr>
-                <th>Label</th>
+                <th>{{'Label'|trans}}</th>
                 <td>{{ counter.label }}</td>
             </tr>
             <tr>
-                <th>Coefficient</th>
+                <th>{{'Coefficient'|trans}}</th>
                 <td>{{ counter.coefficient }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('counter_index') }}">back to list</a>
+    <a href="{{ path('counter_index') }}">{{'back to list'|trans}}</a>
 
-    <a href="{{ path('counter_edit', {'id': counter.id}) }}">edit</a>
+    <a href="{{ path('counter_edit', {'id': counter.id}) }}">{{'edit'|trans}}</a>
 
     {{ include('counter/_delete_form.html.twig') }}
 {% endblock %}

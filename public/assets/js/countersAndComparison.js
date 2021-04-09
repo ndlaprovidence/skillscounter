@@ -118,7 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
         newNoteTextArea.textContent = newAverageNote + "/20";
     }
     else {
-        newNoteTextArea.textContent = "Notes values undefined";
+        // newNoteTextArea.textContent = "Notes values undefined";
+        newNoteTextArea.textContent = "Valeurs des notes indéfinies";
     }
     
     // ------------
@@ -154,7 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
         oldNoteTextArea.textContent = oldAverageNote + "/20";
     }
     else {
-        oldNoteTextArea.textContent = "no previous note";
+        // oldNoteTextArea.textContent = "no previous note";
+        oldNoteTextArea.textContent = "aucune note antérieure";
     }
     // ------------
 

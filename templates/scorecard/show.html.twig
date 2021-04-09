@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Scorecard{% endblock %}
+{% block title %}{{'Scorecard'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Scorecard</h1>
+    <h1>{{'Scorecard'|trans}}</h1>
 
     <table class="table">
         <tbody>
@@ -12,17 +12,17 @@
                 <td>{{ scorecard.id }}</td>
             </tr>
             <tr>
-                <th>Label</th>
+                <th>{{'Label'|trans}}</th>
                 <td>{{ scorecard.label }}</td>
             </tr>
             <tr>
-                <th>Compteurs</th>
+                <th>{{'Counters'|trans}}</th>
                 <td>
                 {% for counter in scorecard.counter %}
                     {{ counter }}<br/>
 
                 {% else %}
-                    no counter found
+                    {{'no counter found'|trans}}
                     </td>
                 {% endfor %}
                 </td>
@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('scorecard_index') }}">back to list</a>
+    <a href="{{ path('scorecard_index') }}">{{'back to list'|trans}}</a>
 
-    <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">edit</a>
+    <a href="{{ path('scorecard_edit', {'id': scorecard.id}) }}">{{'edit'|trans}}</a>
 
     {{ include('scorecard/_delete_form.html.twig') }}
 {% endblock %}

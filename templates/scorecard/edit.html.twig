@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Scorecard{% endblock %}
+{% block title %}{{'Edit Scorecard'|trans}}{% endblock %}
 
 {% block body %}
-    <h1>Edit Scorecard</h1>
+    <h1>{{'Edit Scorecard'|trans}}</h1>
 
-    {{ include('scorecard/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('scorecard/_form.html.twig', {'button_label': 'Update'|trans}) }}
 
-    <a href="{{ path('scorecard_index') }}">back to list</a>
+    <a href="{{ path('scorecard_index') }}">{{'back to list'|trans}}</a>
 
     {{ include('scorecard/_delete_form.html.twig') }}
 {% endblock %}

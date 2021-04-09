@@ -10,27 +10,27 @@
 {% block body %}
     <div class="wrap-evaluation-information">
         <div>
-            <h3>Subject : </h3>
+            <h3>{{'Subject'|trans}} : </h3>
             <h3>Communication Ressources Humaines</h3> {# A récupérer via le prof #}
         </div>
         <div>
-            <h3>Evaluation : </h3>
+            <h3>{{'Evaluation'|trans}} : </h3>
             <h3>{{ evaluation.label }} - {{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }}</h3>
         </div>
     </div>
 
     <div class="wrap-text">
         <div class="student-information">
-            <h3>student :</h3>
+            <h3>{{'student'|trans}} :</h3>
             <h4 class="student-name">{{ evaluation.student.username }}</h4> 
             <h4 class="student-grade">Terminale STMG</h4> {# A récupérer via l'élève #}
         </div>
         <div class="evaluation-description">
-            <h3>description :</h3>
+            <h3>{{'description'|trans}} :</h3>
             <h4>{{ evaluation.description }}</h4>
         </div>
         <div class="professor-information">
-            <h3>professor :</h3>
+            <h3>{{'professor'|trans}} :</h3>
             <h4>M. THOMAS</h4> {# A récupérer via la fiche #}
         </div>
     </div>
@@ -67,25 +67,25 @@
     </div>
 
     <div class="legend">
-        <h3>Legend</h3>
+        <h3>{{'Legend'|trans}}</h3>
         <h4>
-            Grey needles: Old notes
+            {{'Grey needles: Old notes'|trans}}
             <br/>
-            Black needles: : New notes
+            {{'Black needles: : New notes'|trans}}
         </h4>
     </div>
 
     <div class="comparison">
-        <h3>Comparison of notes</h3>
+        <h3>{{'Comparison of notes'|trans}}</h3>
         <div class="wrap-comparison">
             <div>
-                <h4>Old note</h4>
+                <h4>{{'Old note'|trans}}</h4>
                 <h4 class="old-note-comparison-text"></h4>
                 <p> 
                     {% if datePreviousEvaluation is defined %}
                         ({{ datePreviousEvaluation ? datePreviousEvaluation|date('d/m/Y') : ''  }})
                     {% else %}
-                        (No previous evaluation)
+                        ({{'No previous evaluation'|trans}})
                     {% endif %} 
                 </p>
             </div>
@@ -93,14 +93,14 @@
                 <img class="arrow-comparison" src="../../assets/images/counters/comparaison.png"/>
             </div>
             <div>
-                <h4>New note</h4>
+                <h4>{{'New note'|trans}}</h4>
                 <h4 class="new-note-comparison-text"></h4>
                 <p>({{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }})</p>
             </div>
         </div>
     </div>
 
-    <a href="{{ path('evaluation_index') }}">back to list</a>
+    <a href="{{ path('evaluation_index') }}">{{'back to list'|trans}}</a>
 {% endblock %}
 {% block javascripts %}
     <script src="../../assets/js/countersAndComparison.js"></script>
