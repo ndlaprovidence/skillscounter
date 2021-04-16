@@ -66,10 +66,11 @@ class NoteSimulationController extends AbstractController
         $form = $this->createForm(NoteSimulationType::class, $noteSimulation);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('note_simulation_index');
+            return $this->render('note_simulation/show.html.twig', [
+                'note_simulation' => $noteSimulation,
+            ]);
         }
 
         return $this->render('note_simulation/edit.html.twig', [

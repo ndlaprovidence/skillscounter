@@ -51,7 +51,22 @@
             </div>
         </nav>
 
-        {% block body %}{% endblock %}
+        {% for message in app.flashes('notification') %}
+        <div class="alert alert-info alert-dismissible fade show">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        {% endfor %}
+
+        <main role="main" class="container">
+            <div class="starter-template">
+                <div class="col-md-12 col-lg-12 col-xl-12">
+
+                    {% block body %}{% endblock %}
+
+                </div>
+            </div>
+        </main>    
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="/docs/5.0/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
