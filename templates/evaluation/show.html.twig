@@ -11,7 +11,7 @@
     <div class="wrap-evaluation-information">
         <div>
             <h3>{{'Subject'|trans}} : </h3>
-            <h3>Communication Ressources Humaines</h3> {# A récupérer via le prof #}
+            <h3>{{ evaluation.scorecard.label }}</h3> {# A récupérer via le prof #}
         </div>
         <div>
             <h3>{{'Evaluation'|trans}} : </h3>
@@ -40,28 +40,28 @@
             <img src="../../assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
-            <h3 class="subject1">{{ evaluation.scorecard.counter[0].label }}</h3>
+            <h4 class="subject1">{{ evaluation.scorecard.counter[0].label }}</h4>
             <p>{{ evaluation.scorecard.counter[0].coefficient*100 }}%</p>
         </div>
         <div class="second-note" data-new-note-second-cpt="{{ evaluation.valueNote2 }}" data-old-note-second-cpt="{{ oldNote2 }}">
             <img src="../../assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
-            <h3 class="subject2">{{ evaluation.scorecard.counter[1].label }}</h3>
+            <h4 class="subject2">{{ evaluation.scorecard.counter[1].label }}</h4>
             <p>{{ evaluation.scorecard.counter[1].coefficient*100 }}%</p>
         </div>
         <div class="third-note" data-new-note-third-cpt="{{ evaluation.valueNote3 }}" data-old-note-third-cpt="{{ oldNote3 }}">
             <img src="../../assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
-            <h3 class="subject3">{{ evaluation.scorecard.counter[2].label }}</h3>
+            <h4 class="subject3">{{ evaluation.scorecard.counter[2].label }}</h4>
             <p>{{ evaluation.scorecard.counter[2].coefficient*100 }}%</p>
         </div>
         <div class="last-note" data-new-note-last-cpt="{{ evaluation.valueNote4 }}" data-old-note-last-cpt="{{ oldNote4 }}">
             <img src="../../assets/images/counters/jauge-1.png"/>
             <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
             <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
-            <h3 class="subject4">{{ evaluation.scorecard.counter[3].label }}</h3>
+            <h4 class="subject4">{{ evaluation.scorecard.counter[3].label }}</h4>
             <p>{{ evaluation.scorecard.counter[3].coefficient*100 }}%</p>
         </div>
     </div>
@@ -69,7 +69,7 @@
     <div class="legend">
         <h3>{{'Legend'|trans}}</h3>
         <h4>
-            {{'Grey needles: Old notes'|trans}}
+            <span class="grey-needle-legend">{{'Grey needles: Old notes'|trans}}</span>
             <br/>
             {{'Black needles: : New notes'|trans}}
         </h4>
