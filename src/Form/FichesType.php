@@ -6,6 +6,8 @@ use App\Entity\Fiches;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class FichesType extends AbstractType
 {
@@ -14,7 +16,12 @@ class FichesType extends AbstractType
         $builder
             ->add('name')
             ->add('BAC_obteined')
-            ->add('Situation')
+            ->add('Situation',ChoiceType::class,  [
+                'choices' => [
+                    'Demi pensionnaire' => 'DP',
+                    'Interne' => "I",
+                    'Externe' => "E",
+                ],])
             ->add('old_study')
             ->add('Forces')
             ->add('Weakness')

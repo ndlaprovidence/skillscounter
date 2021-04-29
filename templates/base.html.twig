@@ -46,6 +46,13 @@
                         </li>
                         {% endif %}
                     </ul>
+                        <ul class="nav-item">
+                        {% if is_granted('ROLE_TEACHER') %}
+                        <li>
+                        <a class="nav-link" href="/form/fiches/View">Consultation Fiches</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 </ul>
                 {#<a class="displayed-name-prof" href="#">{{prof_name}}</a>#}                   
             </div>
