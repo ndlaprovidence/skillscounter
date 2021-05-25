@@ -167,6 +167,16 @@ class NoteSimulation
      */
     private $Spe2;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $NameTest;
+
+    public function __construct()
+    {
+        $this->setNameTest('Simulation de note');
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -528,6 +538,22 @@ class NoteSimulation
     public function setSpe2(?float $Spe2): self
     {
         $this->Spe2 = $Spe2;
+
+        return $this;
+    }
+
+    public function getNameTest(): ?string
+    {
+        // $nameTest = $this->getNameTest();
+        // if (!isset($nameTest)) {
+        //     $this->setNameTest('Sans nom');
+        // }
+        return $this->NameTest;
+    }
+
+    public function setNameTest(?string $NameTest): self
+    {
+        $this->NameTest = $NameTest;
 
         return $this;
     }

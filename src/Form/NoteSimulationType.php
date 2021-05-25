@@ -12,6 +12,7 @@ class NoteSimulationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('NameTest')
             ->add('A1T1')
             ->add('A1T2')
             ->add('A1T3')

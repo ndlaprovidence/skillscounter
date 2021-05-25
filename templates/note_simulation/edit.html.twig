@@ -4,7 +4,7 @@
 
 {% block body %}
 {{ form_start(form) }}
-    <h1>NoteSimulation</h1>
+    <h1>{{ form_row(form.NameTest) }}</h1>
     <div>
         <table class="table">
             <thead>
@@ -138,8 +138,7 @@
 
     <a href="{{ path('note_simulation_show', {'id': note_simulation.id}) }}">show</a>
     
-    <button class="btn">{{ button_label|default('Save') }}</button>
-    
+    <button class="btn" class="btn btn-primary">{{ button_label|default('Save') }}</button>
     {{ include('note_simulation/_delete_form.html.twig') }}
     {{ form_end(form) }}
 {% endblock %}

@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\NoteSimulation;
 use App\Form\NoteSimulationType;
 use App\Repository\NoteSimulationRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Notifier\NotifierInterface;
+use Symfony\Component\Notifier\Notification\Notification;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/noteSimulation")
@@ -61,13 +63,14 @@ class NoteSimulationController extends AbstractController
     /**
      * @Route("/{id}/edit", name="note_simulation_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, NoteSimulation $noteSimulation): Response
+    public function edit(Request $request, NoteSimulation $noteSimulation,  NotifierInterface $notifier): Response
     {
         $form = $this->createForm(NoteSimulationType::class, $noteSimulation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
             $this->getDoctrine()->getManager()->flush();
+            $notifier->send(new Notification('Simulation bien enregistrée', ['browser']));
             return $this->render('note_simulation/show.html.twig', [
                 'note_simulation' => $noteSimulation,
             ]);
