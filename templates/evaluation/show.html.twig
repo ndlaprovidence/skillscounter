@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('../../assets/css/counters.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block title %}Evaluation{% endblock %}
+
+{% block body %}
+    <div class="wrap-evaluation-information">
+        <div>
+            <h3>{{'Subject'|trans}} : </h3>
+            <h3>{{ evaluation.scorecard.label }}</h3> {# A récupérer via le prof #}
+        </div>
+        <div>
+            <h3>{{'Evaluation'|trans}} : </h3>
+            <h3>{{ evaluation.label }} - {{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }}</h3>
+        </div>
+    </div>
+
+    <div class="wrap-text">
+        <div class="student-information">
+            <h3>{{'student'|trans}} :</h3>
+            <h4 class="student-name">{{ evaluation.student.username }}</h4> 
+            <h4 class="student-grade">Terminale STMG</h4> {# A récupérer via l'élève #}
+        </div>
+        <div class="evaluation-description">
+            <h3>{{'description'|trans}} :</h3>
+            <h4>{{ evaluation.description }}</h4>
+        </div>
+        <div class="professor-information">
+            <h3>{{'professor'|trans}} :</h3>
+            <h4>M. THOMAS</h4> {# A récupérer via la fiche #}
+        </div>
+    </div>
+
+    <div class="wrap-counters">
+        <div class="first-note" data-new-note-first-cpt="{{ evaluation.valueNote1 }}" data-old-note-first-cpt="{{ oldNote1 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h4 class="subject1">{{ evaluation.scorecard.counter[0].label }}</h4>
+            <p>{{ evaluation.scorecard.counter[0].coefficient*100 }}%</p>
+        </div>
+        <div class="second-note" data-new-note-second-cpt="{{ evaluation.valueNote2 }}" data-old-note-second-cpt="{{ oldNote2 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h4 class="subject2">{{ evaluation.scorecard.counter[1].label }}</h4>
+            <p>{{ evaluation.scorecard.counter[1].coefficient*100 }}%</p>
+        </div>
+        <div class="third-note" data-new-note-third-cpt="{{ evaluation.valueNote3 }}" data-old-note-third-cpt="{{ oldNote3 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h4 class="subject3">{{ evaluation.scorecard.counter[2].label }}</h4>
+            <p>{{ evaluation.scorecard.counter[2].coefficient*100 }}%</p>
+        </div>
+        <div class="last-note" data-new-note-last-cpt="{{ evaluation.valueNote4 }}" data-old-note-last-cpt="{{ oldNote4 }}">
+            <img src="../../assets/images/counters/jauge-1.png"/>
+            <img class="aiguillePreviousNote" src="../../assets/images/counters/ancienne_note.png"/>
+            <img class="aiguilleNewNote" src="../../assets/images/counters/nouvelle_note.png"/>
+            <h4 class="subject4">{{ evaluation.scorecard.counter[3].label }}</h4>
+            <p>{{ evaluation.scorecard.counter[3].coefficient*100 }}%</p>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>{{'Legend'|trans}}</h3>
+        <h4>
+            <span class="grey-needle-legend">{{'Grey needles: Old notes'|trans}}</span>
+            <br/>
+            {{'Black needles: : New notes'|trans}}
+        </h4>
+    </div>
+
+    <div class="comparison">
+        <h3>{{'Comparison of notes'|trans}}</h3>
+        <div class="wrap-comparison">
+            <div>
+                <h4>{{'Old note'|trans}}</h4>
+                <h4 class="old-note-comparison-text"></h4>
+                <p> 
+                    {% if datePreviousEvaluation is defined %}
+                        ({{ datePreviousEvaluation ? datePreviousEvaluation|date('d/m/Y') : ''  }})
+                    {% else %}
+                        ({{'No previous evaluation'|trans}})
+                    {% endif %} 
+                </p>
+            </div>
+            <div>
+                <img class="arrow-comparison" src="../../assets/images/counters/comparaison.png"/>
+            </div>
+            <div>
+                <h4>{{'New note'|trans}}</h4>
+                <h4 class="new-note-comparison-text"></h4>
+                <p>({{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d/m/Y') : '' }})</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('evaluation_index') }}">{{'back to list'|trans}}</a>
+{% endblock %}
+{% block javascripts %}
+    <script src="../../assets/js/countersAndComparison.js"></script>
+{% endblock %}

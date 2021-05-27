@@ -1,0 +1,197 @@
+.wrap-evaluation-information {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-bottom: 15px;
+}
+
+.wrap-evaluation-information div {
+    width: 43%;
+    padding: 10px;    
+}
+
+.wrap-evaluation-information div h3 {
+    display: inline;
+    font-weight: 600;
+}
+
+.wrap-evaluation-information div h3:nth-of-type(odd) {
+    text-transform: uppercase;
+}
+
+.wrap-text {
+	display: flex;
+    justify-content: space-between;
+}
+
+.wrap-text div {
+    width: 32%;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.wrap-text div > h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.wrap-text div.student-information {
+    text-align: left;
+}
+
+.wrap-text div.evaluation-description {
+    text-align: center;
+}
+
+.wrap-text div.professor-information {
+    text-align: right;
+}
+
+.wrap-counters {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap-counters div {
+    flex-grow: 1;
+    min-width: 25%;
+    max-height: 370px;
+    max-height: auto;
+    overflow: hidden;
+}    
+
+.wrap-counters div img {
+    width: 100%;
+    -webkit-transition: all 1s 1s ease-in-out;
+    -moz-transition: all 1s 1s ease-in-out;
+    -o-transition: all 1s 1s ease-in-out;
+    transition: all 1s 1s ease-in-out;
+}
+
+.wrap-counters div:nth-child(n) {
+    position: relative;
+    width: 25%;
+    flex-grow: 0;
+}
+
+.wrap-counters div:nth-child(n) .aiguillePreviousNote {
+    position: absolute;
+    /* transform: rotate(30.5deg); */
+    left: 0%;
+    z-index: 2;
+}
+
+.wrap-counters div:nth-child(n) .aiguilleNewNote {
+    position: absolute;
+    /* transform: rotate(115.5deg); */
+    left: 0%;
+    top: 0%;
+    z-index: 3;
+}
+
+.wrap-counters div h4 {
+    z-index: 4;
+    text-align: center;
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    width: 270px;
+    transform: translate(-50%, -50%);
+}
+.wrap-counters div p {
+    z-index: 4;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0%;
+}
+
+.legend {
+    padding-top: 0%;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 33.3333%;
+    padding: 10px;
+    padding-top: 0%;
+    text-align: center;
+    z-index: 5;
+}
+
+.legend > h3 {
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.grey-needle-legend {
+    color: #808080;
+}
+
+.comparison {
+    z-index: 5;
+    width: 50%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
+.comparison h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.wrap-comparison {
+    display: flex;
+    min-width: 33.33%;
+    flex-wrap: wrap;
+}
+
+.wrap-comparison div {
+    flex-grow: 1;
+    width: 32%;
+}
+
+.wrap-comparison div h4 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.wrap-comparison div h4:nth-of-type(1) {
+    font-weight: 600;
+}
+
+.wrap-comparison div h4:nth-child(2) {
+    font-style: italic;
+}
+
+.wrap-comparison div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    margin-bottom: 10px;
+}
+
+.wrap-comparison p {
+    text-align: center;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.arrow-comparison {
+    -webkit-transition: all 1s 1s ease-in-out;
+    -moz-transition: all 1s 1s ease-in-out;
+    -o-transition: all 1s 1s ease-in-out;
+    transition: all 1s 1s ease-in-out;
+}

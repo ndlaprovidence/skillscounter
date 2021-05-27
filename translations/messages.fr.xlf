@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id=".HCiGpb" resname="Edit Evaluation">
+        <source>Edit Evaluation</source>
+        <target>Edition de l'évaluation</target>
+      </trans-unit>
+      <trans-unit id="U0M9PNE" resname="back to list">
+        <source>back to list</source>
+        <target>Retour à la liste</target>
+      </trans-unit>
+      <trans-unit id="oCEzTVO" resname="Evaluation index">
+        <source>Evaluation index</source>
+        <target>Liste des évaluations</target>
+      </trans-unit>
+      <trans-unit id="GsqA6LV" resname="label">
+        <source>label</source>
+        <target>Intitulé</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="_8Lj0z0" resname="DateEvaluation">
+        <source>DateEvaluation</source>
+        <target>Date de l'évaluation</target>
+      </trans-unit>
+      <trans-unit id="KhZNVBV" resname="Student">
+        <source>Student</source>
+        <target>Elève</target>
+      </trans-unit>
+      <trans-unit id="Kw3N1AA" resname="actions">
+        <source>actions</source>
+        <target>Actions</target>
+      </trans-unit>
+      <trans-unit id="HGMzUJ3" resname="show">
+        <source>show</source>
+        <target>Consulter</target>
+      </trans-unit>
+      <trans-unit id="JiEhxTc" resname="edit">
+        <source>edit</source>
+        <target>Editer</target>
+      </trans-unit>
+      <trans-unit id="D5lam8." resname="no records found">
+        <source>no records found</source>
+        <target>Aucun enregistrement trouvé</target>
+      </trans-unit>
+      <trans-unit id="nz33U6Q" resname="Create new">
+        <source>Create new</source>
+        <target>Créer</target>
+      </trans-unit>
+      <trans-unit id="OGzjIr6" resname="New Evaluation">
+        <source>New Evaluation</source>
+        <target>Nouvelle évaluation</target>
+      </trans-unit>
+      <trans-unit id="jnWdLdV" resname="Create new Evaluation">
+        <source>Create new Evaluation</source>
+        <target>Créer une nouvelle évaluation</target>
+      </trans-unit>
+      <trans-unit id="aJcSg4Q" resname="Subject">
+        <source>Subject</source>
+        <target>Matière</target>
+      </trans-unit>
+      <trans-unit id="Fj5EsQJ" resname="Evaluation">
+        <source>Evaluation</source>
+        <target>Evaluation</target>
+      </trans-unit>
+      <trans-unit id="JkyMOBv" resname="student">
+        <source>student</source>
+        <target>Elève</target>
+      </trans-unit>
+      <trans-unit id="yQRveje" resname="description">
+        <source>description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="F8FTLKb" resname="professor">
+        <source>professor</source>
+        <target>Professeur</target>
+      </trans-unit>
+      <trans-unit id="dILjdLW" resname="Legend">
+        <source>Legend</source>
+        <target>Légende</target>
+      </trans-unit>
+      <trans-unit id="d568kxN" resname="Grey needles: Old notes">
+        <source>Grey needles: Old notes</source>
+        <target>Aiguilles grises : Anciennes notes</target>
+      </trans-unit>
+      <trans-unit id="vinfxz2" resname="Black needles: : New notes">
+        <source>Black needles: : New notes</source>
+        <target>Aiguilles noires : Nouvelles notes</target>
+      </trans-unit>
+      <trans-unit id="fsTntnI" resname="Comparison of notes">
+        <source>Comparison of notes</source>
+        <target>Comparaison des notes</target>
+      </trans-unit>
+      <trans-unit id="RMbohnN" resname="Old note">
+        <source>Old note</source>
+        <target>Ancienne note</target>
+      </trans-unit>
+      <trans-unit id="6.ps5lK" resname="No previous evaluation">
+        <source>No previous evaluation</source>
+        <target>Aucune évaluation antérieure</target>
+      </trans-unit>
+      <trans-unit id="dupIL4Q" resname="New note">
+        <source>New note</source>
+        <target>Nouvelle note</target>
+      </trans-unit>
+      <trans-unit id="4tClSWj" resname="Delete">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="FQn1YfJ" resname="Save">
+        <source>Save</source>
+        <target>Enregistrer</target>
+      </trans-unit>
+      <trans-unit id="fx3pTip" resname="Edit Counter">
+        <source>Edit Counter</source>
+        <target>Edition de compteur</target>
+      </trans-unit>
+      <trans-unit id="wcEAnT8" resname="Update">
+        <source>Update</source>
+        <target>Mettre à jour</target>
+      </trans-unit>
+      <trans-unit id="DmY3P0X" resname="Label">
+        <source>Label</source>
+        <target>Intitulé</target>
+      </trans-unit>
+      <trans-unit id="mrbuLIN" resname="Coefficient">
+        <source>Coefficient</source>
+        <target>Coéfficient</target>
+      </trans-unit>
+      <trans-unit id="ZZWzsPe" resname="New Counter">
+        <source>New Counter</source>
+        <target>Nouveau compteur</target>
+      </trans-unit>
+      <trans-unit id="GtRvZfm" resname="Create new Counter">
+        <source>Create new Counter</source>
+        <target>Créer un nouveau compteur</target>
+      </trans-unit>
+      <trans-unit id="p4z99Kz" resname="Counter">
+        <source>Counter</source>
+        <target>Compteur</target>
+      </trans-unit>
+      <trans-unit id="gSiU01O" resname="Welcome on Mévole">
+        <source>Welcome on Mévole</source>
+        <target>Bienvenue sur Mévole</target>
+      </trans-unit>
+      <trans-unit id="WyKbyMC" resname="Counter index">
+        <source>Counter index</source>
+        <target>Liste des compteurs</target>
+      </trans-unit>
+      <trans-unit id="sJsmNUz" resname="Mévole is a software for managing competency counters, student records and average calculation for the baccalaureate.">
+        <source>Mévole is a software for managing competency counters, student records and average calculation for the baccalaureate.</source>
+        <target>Mévole est un logiciel de gestion de compteurs de compétences, de gestion de fiches élèves et de calcul de moyenne pour le baccalauréat.</target>
+      </trans-unit>
+      <trans-unit id="Ari1BIv" resname="Edit Scorecard">
+        <source>Edit Scorecard</source>
+        <target>Edition d'une fiche</target>
+      </trans-unit>
+      <trans-unit id="8uvydcp" resname="Scorecard index">
+        <source>Scorecard index</source>
+        <target>Liste des fiches</target>
+      </trans-unit>
+      <trans-unit id="5aT6med" resname="Counters">
+        <source>Counters</source>
+        <target>Compteurs</target>
+      </trans-unit>
+      <trans-unit id="VuXxVpE" resname="New Scorecard">
+        <source>New Scorecard</source>
+        <target>Nouvelle fiche</target>
+      </trans-unit>
+      <trans-unit id="h23g2ux" resname="Create new Scorecard">
+        <source>Create new Scorecard</source>
+        <target>Créer une fiche</target>
+      </trans-unit>
+      <trans-unit id="_5kyKwK" resname="Scorecard">
+        <source>Scorecard</source>
+        <target>Fiche</target>
+      </trans-unit>
+      <trans-unit id="kKABcs8" resname="no counter found">
+        <source>no counter found</source>
+        <target>Aucun compteur trouvé</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

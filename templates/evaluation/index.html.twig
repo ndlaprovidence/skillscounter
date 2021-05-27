@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Evaluation index'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'Evaluation index'|trans }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>{{ 'label'|trans }}</th>
+                <th>{{ 'Description'|trans }}</th>
+                <th>{{ 'DateEvaluation'|trans }}</th>
+                <th>{{ 'Student'|trans }}</th>
+                <th>{{ 'actions'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.id }}</td>
+                <td>{{ evaluation.label }}</td>
+                <td>{{ evaluation.description }}</td>
+                <td>{{ evaluation.dateEvaluation ? evaluation.dateEvaluation|date('d-m-Y') : '' }}</td>
+                <td>{{ evaluation.student.username }}</td>
+                <td>
+                    <a href="{{ path('evaluation_show', {'id': evaluation.id}) }}">{{'show'|trans}}</a>
+                    <a href="{{ path('evaluation_edit', {'id': evaluation.id}) }}">{{'edit'|trans}}</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">{{ 'no records found'|trans }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('evaluation_new') }}">{{ 'Create new'|trans }}</a>
+{% endblock %}
