@@ -105,28 +105,35 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         $em = $this->entityManager;      
         $user= $em->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
+
+        $student= $em->getRepository(Student::class)->findOneBy(['username' => $credentials['username']]);
+        $teacher= $em->getRepository(Teacher::class)->findOneBy(['username' => $credentials['username']]);
         
-/*
-        if (!$studient) {
-            $studient = new studient();
-            $studient->SetUsername($username);
-            $studient->SetPassword($this->passwordEncoder->encodePassword($studient, $password));
-            $em->persist($studient);
+
+        if (!$student) {
+            $student = new student();
+            $student->SetUsername($username);
+            $student->SetPassword($this->passwordEncoder->encodePassword($student, $password));
+            $em->persist($student);
             $em->flush();
+
+        }
+
+        return $student;
             
-        }elseif (!teacher) {
-            $teacher = new User();
+        if (!$teacher) {
+            $teacher = new Teacher();
             $teacher->SetUsername($username);
             $teacher->SetPassword($this->passwordEncoder->encodePassword($teacher, $password));
             $em->persist($teacher);
             $em->flush();
 
-        })
+        }
 
-        return $user;
+        return $teacher;
 
-        */
-
+        
+/*
         if (!$user) {
             // fail authentication with a custom error
             // throw new CustomUserMessageAuthenticationException('Username could not be found.');
@@ -140,9 +147,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         }
 
         return $user;
-
+*/
         
     }
+
 
     public function checkCredentials($credentials, UserInterface $user)
     {
