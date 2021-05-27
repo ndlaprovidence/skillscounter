@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiches index{% endblock %}
+
+{% block body %}
+    <h1>Fiches index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>BAC_obteined</th>
+                <th>Situation</th>
+                <th>Old_study</th>
+                <th>Forces</th>
+                <th>Weakness</th>
+                <th>Activity</th>
+                <th>Inscription</th>
+                <th>Future_job</th>
+                <th>Telling_about_me</th>
+                <th>Self_express</th>
+                <th>Speciality</th>
+                <th>First_language</th>
+                <th>Second_language</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fich in fiches %}
+            <tr>
+                <td>{{ fich.name }}</td>
+                <td>{{ fich.BACObteined }}</td>
+                <td>{{ fich.Situation }}</td>
+                <td>{{ fich.oldStudy }}</td>
+                <td>{{ fich.Forces }}</td>
+                <td>{{ fich.Weakness }}</td>
+                <td>{{ fich.Activity }}</td>
+                <td>{{ fich.Inscription }}</td>
+                <td>{{ fich.futureJob }}</td>
+                <td>{{ fich.tellingAboutMe }}</td>
+                <td>{{ fich.selfExpress }}</td>
+                <td>{{ fich.Speciality }}</td>
+                <td>{{ fich.firstLanguage }}</td>
+                <td>{{ fich.secondLanguage }}</td>
+                <td>
+                    <a href="{{ path('form_fiches_show', {'id': fich.id}) }}">show</a>
+                    <a href="{{ path('form_fiches_edit', {'id': fich.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('form_fiches_new') }}">Create new</a>
+{% endblock %}
