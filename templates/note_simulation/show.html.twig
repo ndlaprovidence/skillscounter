@@ -1,0 +1,240 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}NoteSimulation : {{note_simulation.NameTest}} {% endblock %}
+
+{% block body %}
+<h1>{{ note_simulation.NameTest }}</h1>
+
+{% set MoyenneScien  = ((note_simulation.ScienEP1 + note_simulation.ScienEP2 + note_simulation.ScienEP3)/3) |round (1, 'floor')%}
+{% set MoyenneHisGeo = ((note_simulation.HistEP1 + note_simulation.HistEP2 + note_simulation.HistEP3)/3) |round (1, 'floor')%}
+{% set MoyenneLVA  = ((note_simulation.LVAEP1 + note_simulation.LVAEP2 + note_simulation.LVAEP3)/3) |round (1, 'floor')%}
+{% set MoyenneLVB  = ((note_simulation.LVBEP1 + note_simulation.LVBEP2 + note_simulation.LVBEP3)/3) |round (1, 'floor')%}
+{% set MoyenneEPS  = ((note_simulation.EPSEP1 + note_simulation.EPSEP2 + note_simulation.EPSEP3)/3) |round (1, 'floor')%}
+{% set MoyenneSPE  = ((note_simulation.SPEEP1 + note_simulation.SPEEP2 + note_simulation.SPEEP3)/3) |round (1, 'floor')%}
+{% set MoyenneTotal = ((MoyenneScien + MoyenneHisGeo + MoyenneLVA + MoyenneLVB + MoyenneEPS + MoyenneSPE)/6)|round (2, 'floor') %}
+{% set PointCC     = (((note_simulation.A1T1 + note_simulation.A1T2 + note_simulation.A1T3 + note_simulation.A2T1 + note_simulation.A2T2 + note_simulation.A2T3)/6)*0.1)|round (2, 'floor') %}
+{% set PointEC     = (MoyenneTotal * 0.3)               |round (2, 'floor') %}
+{% set PointFE     = (note_simulation.FranE * 0.05)     |round (2, 'floor') %}
+{% set PointFO     = (note_simulation.FranO * 0.05)     |round (2, 'floor') %}
+{% set PointPhilo  = (note_simulation.Philo * 0.08)     |round (2, 'floor') %}
+{% set PointGO     = (note_simulation.GrandOral * 0.1)  |round (2, 'floor') %}
+{% set PointSP1    = (note_simulation.Spe1 * 0.16)      |round (2, 'floor') %}
+{% set PointSP2    = (note_simulation.Spe2 * 0.16)      |round (2, 'floor') %}
+{% set NoteTotal   = (PointCC + PointEC + PointFE + PointFO + PointPhilo + PointGO + PointSP1 + PointSP2 )|round (2, 'floor')%}
+<div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Contrôle Continu</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>1ERE TRIM 1</td>
+                                <td>{{ note_simulation.A1T1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>1ERE TRIM 2</td>
+                                <td>{{ note_simulation.A1T2 }}</td>
+                            </tr>
+                            <tr>
+                                <td>1ERE TRIM 3</td>
+                                <td>{{ note_simulation.A1T3 }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 1</td>
+                                <td>{{ note_simulation.A2T1 }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 2</td>
+                                <td>{{ note_simulation.A2T2 }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 3</td>
+                                <td>{{ note_simulation.A2T3 }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Moyenne</h6>
+                                </td>
+                                <td>{{((note_simulation.A1T1 + note_simulation.A1T2 + note_simulation.A1T3 +
+                           note_simulation.A2T1 + note_simulation.A2T2 + note_simulation.A2T3)/6)|round (1, 'floor')}}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Valeur en pourcentage de la note sur le total</h6>
+                                </td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6>Point gagner</h6>
+                                </td>
+                                <td>{{PointCC}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Epreuves terminales</h5>
+                    <div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>Français E</td>
+                                    <td>Français O</td>
+                                    <td>Philosophie</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Note</h6></td>
+                                    <td>{{ note_simulation.FranE }}</td>
+                                    <td>{{ note_simulation.FranO }}</td>
+                                    <td>{{ note_simulation.Philo }}</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Valeur en pourcentage de la note sur le total</h6></td>
+                                    <td>5 %</td>
+                                    <td>5 %</td>
+                                    <td>8 %</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Point gagner</h6></td>
+                                    <td>{{PointFE}}</td>
+                                    <td>{{PointFO}}</td>
+                                    <td>{{PointPhilo}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>GRAND ORAL</td>
+                                    <td>SPECIALITE 1</td>
+                                    <td>SPECIALITE 2</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Note</h6></td>
+                                    <td>{{ note_simulation.GrandOral }}</td>
+                                    <td>{{ note_simulation.Spe1 }}</td>
+                                    <td>{{ note_simulation.Spe2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Valeur en pourcentage de la note sur le total</h6></td>
+                                    <td>10 %</td>
+                                    <td>16 %</td>
+                                    <td>16 %</td>
+                                </tr>
+                                <tr>
+                                    <td><h6>Point gagner</h6></td>
+                                    <td>{{PointGO}}</td>
+                                    <td>{{PointSP1}}</td>
+                                    <td>{{PointSP2}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="card bg-light">
+        <div class="card-body">
+            <h5 class="card-title">Epreuves communes</h5>
+            <div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td><h6>EP1</h6></td>
+                            <td><h6>EP2</h6></td>
+                            <td><h6>EP3</h6></td>
+                            <td><h6>Moyenne</h6></td>
+                        </tr>
+                        <tr>
+                            <td>ENSC. SCIENTIFIQUE</td>
+                            <td>{{ note_simulation.ScienEP1 }}</td>
+                            <td>{{ note_simulation.ScienEP2 }}</td>
+                            <td>{{ note_simulation.ScienEP3 }}</td>
+                            <td>{{MoyenneScien}}</td>
+                        </tr>
+                        <tr>
+                            <td>HISTOIRE GEOGRAPHIE</td>
+                            <td>{{ note_simulation.HistEP1 }}</td>
+                            <td>{{ note_simulation.HistEP2 }}</td>
+                            <td>{{ note_simulation.HistEP3 }}</td>
+                            <td>{{ MoyenneHisGeo}}</td>
+                        </tr>
+                        <tr>
+                            <td>LVA</td>
+                            <td>{{ note_simulation.LVAEP1 }}</td>
+                            <td>{{ note_simulation.LVAEP2 }}</td>
+                            <td>{{ note_simulation.LVAEP3 }}</td>
+                            <td>{{MoyenneLVA }}</td>
+                        </tr>
+                        <tr>
+                            <td>LVB</td>
+                            <td>{{ note_simulation.LVBEP1 }}</td>
+                            <td>{{ note_simulation.LVBEP2 }}</td>
+                            <td>{{ note_simulation.LVBEP3 }}</td>
+                            <td>{{MoyenneLVB}}</td>
+                        </tr>
+                        <tr>
+                            <td>EPS</td>
+                            <td>{{ note_simulation.EPSEP1 }}</td>
+                            <td>{{ note_simulation.EPSEP2 }}</td>
+                            <td>{{ note_simulation.EPSEP3 }}</td>
+                            <td>{{ MoyenneEPS}}</td>
+                        </tr>
+                        <tr>
+                            <td>SPE ABANDONNEE</td>
+                            <td>{{ note_simulation.SPEEP1 }}</td>
+                            <td>{{ note_simulation.SPEEP2 }}</td>
+                            <td>{{ note_simulation.SPEEP3 }}</td>
+                            <td>{{MoyenneSPE}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><h6>Moyenne</h6></td>
+                            <td>{{MoyenneTotal}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><h6>Valeur en pourcentage de la note sur le total</h6></td>
+                            <td>30 %</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><h6>Point gagner</h6></td>
+                            <td>{{PointEC}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Note total</th>
+                <td>{{ NoteTotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_simulation_edit', {'id': note_simulation.id}) }}"><button type="button"
+            class="btn btn-primary">Edit</button></a>
+
+    {{ include('note_simulation/_delete_form.html.twig') }}
+    {% endblock %}

@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/css/main.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark ">
-            <a class="navbar-brand" href="/">SkillsCounter</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Nouvelle évaluation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Consultation évaluation</a>                        
-                    </li>  
-                    <li class="nav-item">
-                        <a class="nav-link" href="/subject">Matières</a>                        
-                    </li> 
-                    <ul class="nav-item">
-                        {% if is_granted('ROLE_USER') %}
-                        <li>
-                            <div class="nav-link disabled">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark ">
+        <a class="navbar-brand" href="/">SkillsCounter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nouvelle évaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Consultation évaluation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/subject">Matières</a>
+                </li>
+                <li class="nav-item"></li>
+                <a class="nav-link" href="/noteSimulation">Note Simulation</a>
+                </li>
+                <ul class="nav-item">
+                    {% if is_granted('ROLE_USER') %}
+                    <li>
+                        <div class="nav-link disabled">
                             <i class="fas fa-user"></i>
                             {% if app.user %}
-                                <strong>{{ app.user.username }}</strong>
+                            <strong>{{ app.user.username }}</strong>
                             {% endif %}
-                            </div>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
-                        </li>
-                        {% else %}
-                        <li>
-                            <a class="nav-link" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
-                        </li>
-                        {% endif %}
-                    </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{{ path('app_logout') }}">{{'Logout'|trans}}</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a class="nav-link" href="{{ path('app_login') }}">{{'Sign in'|trans}}</a>
+                    </li>
+                    {% endif %}
                 </ul>
-                {#<a class="displayed-name-prof" href="#">{{prof_name}}</a>#}                   
+            </ul>
+            {#<a class="displayed-name-prof" href="#">{{prof_name}}</a>#}
+        </div>
+    </nav>
+
+    {% for message in app.flashes('notification') %}
+    <div class="alert alert-info alert-dismissible fade show">
+        {{ message }}
+        {# <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> #}
+    </div>
+    {% endfor %}
+
+    <main role="main" class="container">
+        <div class="starter-template">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+
+                {% block body %}{% endblock %}
+
             </div>
-        </nav>
+        </div>
+    </main>
 
-        {% block body %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/5.0/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="/docs/5.0/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-        <script src="/assets/js/bootstrap.min.js"></script>
-        <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    {% block javascripts %}{% endblock %}
+</body>
 
-        {% block javascripts %}{% endblock %}
-    </body>
 </html>
-

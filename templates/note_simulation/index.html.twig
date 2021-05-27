@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NoteSimulation index{% endblock %}
+
+{% block body %}
+    <h1>NoteSimulation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for note_simulation in note_simulations %}
+            <tr>
+                <td>{{ note_simulation.NameTest }}</td>
+                <td>
+                    <a href="{{ path('note_simulation_show', {'id': note_simulation.id}) }}">show</a>
+                    <a href="{{ path('note_simulation_edit', {'id': note_simulation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('note_simulation_new') }}">Create new</a>
+{% endblock %}
