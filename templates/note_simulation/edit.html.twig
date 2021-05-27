@@ -4,142 +4,150 @@
 
 {% block body %}
 {{ form_start(form) }}
-    <h1>{{ form_row(form.NameTest) }}</h1>
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th colspan="2">Contrôle Continu</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1ERE TRIM 1</td>
-                <td>{{ form_row(form.A1T1) }}</td>
-            </tr>
-            <tr>
-                <td>1ERE TRIM 2</td>
-                <td>{{ form_row(form.A1T2) }}</td>
-            </tr>
-            <tr>
-                <td>1ERE TRIM 3</td>
-                <td>{{ form_row(form.A1T3) }}</td>
-            </tr>
-            <tr>
-                <td>TLE TRIM 1</td>
-                <td>{{ form_row(form.A2T1) }}</td>
-            </tr>
-            <tr>
-                <td>TLE TRIM 2</td>
-                <td>{{ form_row(form.A2T2) }}</td>
-            </tr>
-            <tr>
-                <td>TLE TRIM 3</td>
-                <td>{{ form_row(form.A2T3) }}</td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-    
-        <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th colspan="5">Epreuves Continu</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td>EP1</td>
-                <td>EP2</td>
-                <td>EP3</td>
-            </tr>
-            <tr>
-                <td>ENSC. SCIENTIFIQUE</td>
-                <td>{{ form_row(form.ScienEP1) }}</td>
-                <td>{{ form_row(form.ScienEP2) }}</td>
-                <td>{{ form_row(form.ScienEP3) }}</td>
-            </tr>
-            <tr>
-                <td>HISTOIRE GEOGRAPHIE</td>
-                <td>{{ form_row(form.HistEP1) }}</td>
-                <td>{{ form_row(form.HistEP2) }}</td>
-                <td>{{ form_row(form.HistEP3) }}</td>
-            </tr>
-            <tr>
-                <td>LVA</td>
-                <td>{{ form_row(form.LVAEP1) }}</td>
-                <td>{{ form_row(form.LVAEP2) }}</td>
-                <td>{{ form_row(form.LVAEP3) }}</td>
-            </tr>
-            <tr>
-                <td>LVB</td>
-                <td>{{ form_row(form.LVBEP1) }}</td>
-                <td>{{ form_row(form.LVBEP2) }}</td>
-                <td>{{ form_row(form.LVBEP3) }}</td>
-            </tr>
-            <tr>
-                <td>EPS</td>
-                <td>{{ form_row(form.EPSEP1) }}</td>
-                <td>{{ form_row(form.EPSEP2) }}</td>
-                <td>{{ form_row(form.EPSEP3) }}</td>
-            </tr>
-            <tr>
-                <td>SPE ABANDONNEE</td>
-                <td>{{ form_row(form.SPEEP1) }}</td>
-                <td>{{ form_row(form.SPEEP2) }}</td>
-                <td>{{ form_row(form.SPEEP3) }}</td>
-            </tr>
-        </tbody>
-        </table>
-        </div>
-    
-        <div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th colspan="3">Contrôle Continu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Français E</td>
-                    <td>Français O</td>
-                    <td>Philosophie</td>
-                </tr>
-                <tr>
-                    <td>{{ form_row(form.FranE) }}</td>
-                    <td>{{ form_row(form.FranO) }}</td>
-                    <td>{{ form_row(form.Philo) }}</td>
-                </tr>
-            </tbody>
-            </table>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th colspan="3">Contrôle Continu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>GRAND ORAL</td>
-                    <td>SPECIALITE 1</td>
-                    <td>SPECIALITE 2</td>
-                </tr>
-                <tr>
-                    <td>{{ form_row(form.GrandOral) }}</td>
-                    <td>{{ form_row(form.Spe1) }}</td>
-                    <td>{{ form_row(form.Spe2) }}</td>
-                </tr>
-            </tbody>
-            </table>
+<h1>{{ form_widget(form.NameTest) }}</h1>
+<div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Contrôle Continu</h5>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>1ERE TRIM 1</td>
+                                <td>{{ form_widget(form.A1T1) }}</td>
+                            </tr>
+                            <tr>
+                                <td>1ERE TRIM 2</td>
+                                <td>{{ form_widget(form.A1T2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>1ERE TRIM 3</td>
+                                <td>{{ form_widget(form.A1T3) }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 1</td>
+                                <td>{{ form_widget(form.A2T1) }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 2</td>
+                                <td>{{ form_widget(form.A2T2) }}</td>
+                            </tr>
+                            <tr>
+                                <td>TLE TRIM 3</td>
+                                <td>{{ form_widget(form.A2T3) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
+        <div class="col-sm-8">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h5 class="card-title">Epreuves terminales</h5>
+                    <div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Français E</td>
+                                    <td>Français O</td>
+                                    <td>Philosophie</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form_widget(form.FranE) }}</td>
+                                    <td>{{ form_widget(form.FranO) }}</td>
+                                    <td>{{ form_widget(form.Philo) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="3">Contrôle Continu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GRAND ORAL</td>
+                                    <td>SPECIALITE 1</td>
+                                    <td>SPECIALITE 2</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form_widget(form.GrandOral) }}</td>
+                                    <td>{{ form_widget(form.Spe1) }}</td>
+                                    <td>{{ form_widget(form.Spe2) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card bg-light">
+        <div class="card-body">
+            <h5 class="card-title">Epreuves communes</h5>
+            <div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>EP1</td>
+                            <td>EP2</td>
+                            <td>EP3</td>
+                        </tr>
+                        <tr>
+                            <td>ENSC. SCIENTIFIQUE</td>
+                            <td>{{ form_widget(form.ScienEP1) }}</td>
+                            <td>{{ form_widget(form.ScienEP2) }}</td>
+                            <td>{{ form_widget(form.ScienEP3) }}</td>
+                        </tr>
+                        <tr>
+                            <td>HISTOIRE GEOGRAPHIE</td>
+                            <td>{{ form_widget(form.HistEP1) }}</td>
+                            <td>{{ form_widget(form.HistEP2) }}</td>
+                            <td>{{ form_widget(form.HistEP3) }}</td>
+                        </tr>
+                        <tr>
+                            <td>LVA</td>
+                            <td>{{ form_widget(form.LVAEP1) }}</td>
+                            <td>{{ form_widget(form.LVAEP2) }}</td>
+                            <td>{{ form_widget(form.LVAEP3) }}</td>
+                        </tr>
+                        <tr>
+                            <td>LVB</td>
+                            <td>{{ form_widget(form.LVBEP1) }}</td>
+                            <td>{{ form_widget(form.LVBEP2) }}</td>
+                            <td>{{ form_widget(form.LVBEP3) }}</td>
+                        </tr>
+                        <tr>
+                            <td>EPS</td>
+                            <td>{{ form_widget(form.EPSEP1) }}</td>
+                            <td>{{ form_widget(form.EPSEP2) }}</td>
+                            <td>{{ form_widget(form.EPSEP3) }}</td>
+                        </tr>
+                        <tr>
+                            <td>SPE ABANDONNEE</td>
+                            <td>{{ form_widget(form.SPEEP1) }}</td>
+                            <td>{{ form_widget(form.SPEEP2) }}</td>
+                            <td>{{ form_widget(form.SPEEP3) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
     <a href="{{ path('note_simulation_show', {'id': note_simulation.id}) }}">show</a>
-    
+
     <button class="btn" class="btn btn-primary">{{ button_label|default('Save') }}</button>
     {{ include('note_simulation/_delete_form.html.twig') }}
     {{ form_end(form) }}
-{% endblock %}
-
+    {% endblock %}
